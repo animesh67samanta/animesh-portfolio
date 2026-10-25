@@ -13,7 +13,8 @@ import {
   FiMail,
   FiMenu,
   FiX,
-  FiDownload
+  FiDownload,
+  FiArrowUpRight
 } from "react-icons/fi";
 import { portfolioData } from "@/data/portfolioData";
 import { ThemeToggle } from "./ThemeToggle";
@@ -147,9 +148,22 @@ export function Navbar() {
 
             <button
               onClick={() => scrollToSection("contact")}
-              className="px-4 py-2 rounded-xl text-xs font-semibold text-slate-950 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 transition-all duration-200 shadow-md shadow-cyan-500/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+              className="relative group inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold text-slate-950 bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 hover:from-cyan-300 hover:via-sky-300 hover:to-blue-400 transition-all duration-200 shadow-md shadow-cyan-500/25 hover:shadow-lg hover:shadow-cyan-400/40 hover:-translate-y-0.5 active:translate-y-0 border border-cyan-300/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 overflow-hidden"
+              aria-label="Hire Animesh Samanta"
             >
-              Hire Me
+              {/* Shimmer Light Beam Effect */}
+              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/35 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none" />
+
+              {/* Pulsing Availability Status Indicator */}
+              <span className="relative flex h-2 w-2 shrink-0">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500 ring-1 ring-white/50" />
+              </span>
+
+              <span className="tracking-wide">Hire Me</span>
+
+              {/* Micro-animated Arrow Icon */}
+              <FiArrowUpRight className="w-3.5 h-3.5 text-slate-950/80 group-hover:text-slate-950 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </button>
           </div>
 
@@ -248,9 +262,20 @@ export function Navbar() {
             </a>
             <button
               onClick={() => scrollToSection("contact")}
-              className="w-full py-2.5 rounded-xl text-sm font-semibold text-slate-950 bg-cyan-400 hover:bg-cyan-300 transition-colors"
+              className="relative group w-full flex items-center justify-center gap-2.5 py-3 px-4 rounded-xl text-sm font-bold text-slate-950 bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 shadow-lg shadow-cyan-500/25 transition-all overflow-hidden border border-cyan-300/40"
             >
-              Get in Touch
+              {/* Shimmer Light Beam Effect */}
+              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/35 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none" />
+
+              {/* Pulsing Availability Status Indicator */}
+              <span className="relative flex h-2 w-2 shrink-0">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500 ring-1 ring-white/50" />
+              </span>
+
+              <span>Hire Me • Let’s Talk</span>
+
+              <FiArrowUpRight className="w-4 h-4 text-slate-950/80 group-hover:text-slate-950 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </button>
           </div>
         </div>
