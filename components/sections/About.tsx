@@ -8,7 +8,10 @@ import {
   FiCpu,
   FiServer,
   FiTrendingUp,
-  FiCode
+  FiCode,
+  FiTerminal,
+  FiGithub,
+  FiExternalLink
 } from "react-icons/fi";
 import { portfolioData } from "@/data/portfolioData";
 import { FadeIn } from "@/components/animations/FadeIn";
@@ -127,6 +130,80 @@ export function About() {
           </div>
         </div>
       </div>
+
+      {/* DevGit Open Source Contribution Spotlight */}
+      <FadeIn direction="up" delay={0.3} className="mt-10">
+        <div className="relative rounded-3xl p-6 sm:p-8 bg-gradient-to-br from-white via-slate-50 to-slate-100 dark:from-[#0d121d] dark:via-[#101625] dark:to-[#0a0e17] border border-slate-200 dark:border-slate-800/90 shadow-xl overflow-hidden transition-colors">
+          {/* Subtle Ambient Glow */}
+          <div className="absolute top-0 right-0 w-80 h-80 bg-sky-500/10 dark:bg-sky-500/15 rounded-full blur-[100px] pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-indigo-500/10 dark:bg-indigo-500/10 rounded-full blur-[100px] pointer-events-none" />
+
+          <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+            <div className="space-y-3 max-w-3xl">
+              <div className="flex flex-wrap items-center gap-2.5">
+                <span className="px-3 py-1 rounded-full bg-sky-500/15 border border-sky-500/30 text-sky-600 dark:text-sky-400 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+                  <FiTerminal className="w-3.5 h-3.5" />
+                  <span>Open Source Contribution</span>
+                </span>
+                <span className="px-2.5 py-0.5 rounded-full bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-[11px] font-mono">
+                  v1.0.0
+                </span>
+                <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-[11px] font-medium">
+                  MIT License
+                </span>
+              </div>
+
+              <div>
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight flex items-center gap-2">
+                  <span>DevGit</span>
+                  <span className="text-sm font-normal text-slate-500 dark:text-slate-400">— Safer Git Assistant & Terminal UI</span>
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+                  A safer, developer-friendly Git assistant built with Go, Cobra, and Bubble Tea. Pairs an ergonomic CLI with an interactive keyboard-driven terminal dashboard, embedded SQLite metadata auditing, and conservative safeguards against accidental data loss (dirty working-tree protection, safe pushes, and guarded branch/stash deletion).
+                </p>
+              </div>
+
+              {/* Key Architectural Bullets */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs">
+                <div className="p-3 rounded-xl bg-slate-100/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800">
+                  <span className="font-semibold text-slate-900 dark:text-white block">Interactive TUI</span>
+                  <span className="text-slate-500 dark:text-slate-400 text-[11px]">Bubble Tea & Lip Gloss dashboard with 6 direct view tabs</span>
+                </div>
+                <div className="p-3 rounded-xl bg-slate-100/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800">
+                  <span className="font-semibold text-slate-900 dark:text-white block">Safe Execution</span>
+                  <span className="text-slate-500 dark:text-slate-400 text-[11px]">Structured argument arrays without shell injection risks</span>
+                </div>
+                <div className="p-3 rounded-xl bg-slate-100/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800">
+                  <span className="font-semibold text-slate-900 dark:text-white block">Cross-Platform</span>
+                  <span className="text-slate-500 dark:text-slate-400 text-[11px]">macOS (M1-M4/Intel), Linux & Windows Go binaries</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Quick Actions */}
+            <div className="flex flex-col sm:flex-row lg:flex-col gap-3 shrink-0">
+              <a
+                href="https://github.com/animesh67samanta/devgit"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-5 py-3 rounded-2xl bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-semibold text-xs sm:text-sm hover:bg-slate-800 dark:hover:bg-slate-100 transition-all flex items-center justify-center gap-2 shadow-lg"
+              >
+                <FiGithub className="w-4 h-4" />
+                <span>View on GitHub</span>
+              </a>
+              <a
+                href="https://github.com/animesh67samanta/devgit/releases/latest"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-5 py-3 rounded-2xl bg-white dark:bg-slate-800/80 hover:bg-slate-50 dark:hover:bg-slate-700/80 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-semibold text-xs sm:text-sm transition-all flex items-center justify-center gap-2"
+              >
+                <FiExternalLink className="w-4 h-4" />
+                <span>Releases & Binaries</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </FadeIn>
     </section>
   );
 }

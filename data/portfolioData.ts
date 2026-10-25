@@ -1,7 +1,7 @@
 export interface Project {
   id: string;
   title: string;
-  category: "Enterprise & Gov" | "Healthcare" | "E-Commerce" | "Media & Tools";
+  category: "Enterprise & Gov" | "Healthcare" | "Developer Tools & CLI" | "E-Commerce" | "Media & Tools";
   subtitle: string;
   description: string;
   highlights: string[];
@@ -67,6 +67,7 @@ export const portfolioData = {
     greeting: "Hello, I'm",
     role: "Laravel Developer | PHP Developer",
     secondaryRoles: [
+      "Author of DevGit CLI (Go & TUI)",
       "Laravel 12 & Clean Architecture",
       "High-Performance REST APIs",
       "Database Optimization & Redis",
@@ -74,9 +75,9 @@ export const portfolioData = {
       "Spatie RBAC & Payment Gateways"
     ],
     shortBio:
-      "Laravel Developer with 3+ years of experience architecting resilient web applications, RESTful APIs, ERP modules, tax automation platforms, and queue processing systems. Dedicated to clean code, robust database design, and high-throughput workflows.",
+      "Laravel Developer & Open Source Contributor with 3+ years of experience architecting resilient web applications, RESTful APIs, ERP modules, CLI tools, and queue processing systems. Dedicated to clean code, robust database design, and high-throughput workflows.",
     fullBio:
-      "I specialize in Laravel and modern PHP ecosystem engineering, bridging complex business requirements with bulletproof backend architectures. Over the past 3+ years, I have architected mission-critical municipal tax platforms that slashed manual processing by 65%, optimized database queries by 40%, built healthcare appointment systems with real-time slot locking, and integrated secure payment gateways and AI endpoints.",
+      "I specialize in Laravel and modern backend ecosystem engineering, bridging complex business requirements with bulletproof architectures. Alongside enterprise platforms, I am the author of DevGit—an open-source Go CLI and interactive terminal UI with conservative safeguards for safer daily developer workflows. Over the past 3+ years, I have architected mission-critical municipal tax platforms that slashed manual processing by 65%, optimized database queries by 40%, built healthcare appointment systems with real-time slot locking, and integrated secure payment gateways and AI endpoints.",
     location: "Kolkata, India",
     email: "animesh67samanta@gmail.com",
     phone: "+91 9126577584",
@@ -210,6 +211,8 @@ export const portfolioData = {
     { name: "Bootstrap", category: "Frontend", iconName: "SiBootstrap", level: "Advanced", description: "Responsive grids, dashboard layouts, UI components" },
 
     // DevOps & Tools
+    { name: "Go (Golang)", category: "DevOps & Tools", iconName: "SiGo", level: "Advanced", description: "Cross-platform CLI tools, Bubble Tea TUI, GoReleaser pipelines" },
+    { name: "CLI & Terminal UIs", category: "DevOps & Tools", iconName: "FiTerminal", level: "Expert", description: "Cobra subcommands, autocompletions, Lip Gloss styling, SQLite metadata" },
     { name: "Git & GitHub", category: "DevOps & Tools", iconName: "SiGithub", level: "Expert", description: "Branching, PRs, version control, conflict resolution" },
     { name: "Postman", category: "DevOps & Tools", iconName: "SiPostman", level: "Expert", description: "API testing, automated runner collections, mock environments" },
     { name: "Docker", category: "DevOps & Tools", iconName: "SiDocker", level: "Proficient", description: "Containerized environments, docker-compose, PHP/MySQL" },
@@ -287,6 +290,41 @@ export const portfolioData = {
   ] as ExperienceItem[],
 
   projects: [
+    {
+      id: "devgit",
+      title: "DevGit - Safer Git Assistant & Terminal UI",
+      category: "Developer Tools & CLI",
+      subtitle: "Ergonomic Go CLI, Keyboard-Driven Terminal UI & SQLite Command Auditing",
+      description:
+        "DevGit is an open-source, safer, developer-friendly Git assistant pairing an ergonomic Go/Cobra CLI with an interactive keyboard-driven Bubble Tea & Lip Gloss terminal dashboard, embedded SQLite metadata auditing, and conservative safeguards against accidental data loss.",
+      highlights: [
+        "Interactive Terminal UI: Keyboard-driven dashboard powered by Bubble Tea & Lip Gloss with 6 direct view tabs (Dashboard, Status, Branches, Log, Diff, Stashes).",
+        "Safe Push & Pull: Remote synchronization with ahead/behind tracking, upstream branch discovery, protected branch safeguards, and fast-forward only updates.",
+        "Guarded Branch & Stash Engine: Intuitive branch listing, safe switching with dirty working-tree protection, guarded deletion, and non-destructive stash stack controls.",
+        "Embedded SQLite Metadata Auditing: Zero-config SQLite database for command execution metrics, runtime durations, and persistent UI preferences (never storing repository secrets).",
+        "Pure Go Cross-Platform Binaries: Cross-compiled via GoReleaser with SHA256 checksums for macOS (Apple Silicon M1-M4 & Intel), Linux, and Windows."
+      ],
+      technologies: ["Go", "Cobra CLI", "Bubble Tea", "Lip Gloss", "SQLite", "Git CLI", "GoReleaser", "GitHub Actions"],
+      metrics: "6 Target Architectures • Zero Data-Loss Safeguards • Interactive TUI",
+      image: "/images/projects/devgit.png",
+      githubUrl: "https://github.com/animesh67samanta/devgit",
+      liveUrl: "https://github.com/animesh67samanta/devgit/releases/latest",
+      featured: true,
+      architectureDetails: {
+        overview:
+          "DevGit is architected around a strict principle: official Git CLI is the single source of truth for all repository state, while Cobra CLI and Bubble Tea TUI drive the user experience and SQLite acts as an operational metadata store.",
+        keyModules: [
+          "Cobra CLI Layer: Subcommands (status, diff, log, commit, push, pull, branch, stash, tui, config, history, db) and shell completions for Bash, Zsh, Fish, and PowerShell.",
+          "Bubble Tea Interactive TUI: Full terminal dashboard with 6 views, quick navigation (1-6, Tab, h/j/k/l), safe actions (p for safe push, P/u for safe pull, r for refresh), and Lip Gloss styling.",
+          "internal/git: Execution of external Git commands using structured argument arrays (exec.Command) without shell interpretation, preventing command injection.",
+          "internal/database: Embedded zero-configuration SQLite database for command execution history, duration metrics, and persistent UI preferences."
+        ],
+        databaseInsights:
+          "SQLite strictly stores DevGit's operational metadata (command runtime, exit status, and UI settings). It never stores Git objects, diffs, file contents, credentials, or secrets. DevGit functions normally even if SQLite is disabled, locked, or unavailable.",
+        securityNotes:
+          "All external commands execute with structured arguments avoiding shell interpretation (sh -c / bash -c). Push and branch operations enforce pre-flight safety checks (upstream verification, uncommitted changes protection, and guarded branch/stash deletion)."
+      }
+    },
     {
       id: "local-doctors",
       title: "Local Doctors - Telemedicine & Healthcare",

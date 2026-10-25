@@ -20,7 +20,8 @@ import {
   SiJira,
   SiWordpress,
   SiWoocommerce,
-  SiFastapi
+  SiFastapi,
+  SiGo
 } from "react-icons/si";
 import {
   FiClock,
@@ -80,6 +81,7 @@ const iconMap: Record<string, React.ElementType> = {
   FiFile,
   SiWordpress,
   SiWoocommerce,
+  SiGo,
 };
 
 type CategoryFilter = "All" | "Backend" | "Databases" | "Frontend" | "DevOps & Tools" | "APIs & Integrations" | "CMS";

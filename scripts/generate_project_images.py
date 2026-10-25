@@ -132,6 +132,28 @@ projects = [
             "$order->update(['awb_number' => $shipment->awb, 'status' => 'Dispatched']);"
         ],
         "status_text": "Blue-dart Courier API: Connected • Role-Based Warehouse Permissions • AJAX Paginated Grids"
+    },
+    {
+        "name": "devgit",
+        "title": "DevGit — Interactive Git CLI & Terminal UI",
+        "subtitle": "Go • Cobra CLI • Bubble Tea (TUI) • SQLite Auditing • Safe Workflows",
+        "badge": "OPEN SOURCE & CLI TOOL",
+        "color1": "#38bdf8",
+        "color2": "#6366f1",
+        "kpis": [
+            ("Interactive TUI", "Bubble Tea 6 Views", "#38bdf8"),
+            ("Accidental Loss Guard", "Protected Push/Drop", "#34d399"),
+            ("SQLite Metadata", "Local Audit Engine", "#a78bfa"),
+            ("Target Architectures", "6 Cross-Platform Binaries", "#fbbf24")
+        ],
+        "code_snippet": [
+            "$ devgit tui                    # Launch keyboard-driven terminal dashboard",
+            "$ devgit push                   # Remote synchronization with ahead/behind checks",
+            "$ devgit branch switch <name>   # Safe switching with dirty work-tree protection",
+            "$ devgit history list --limit 5 # Query SQLite metadata command execution logs",
+            "Arch: Cobra CLI -> internal/git (exec.Command) + internal/database (SQLite)"
+        ],
+        "status_text": "GitHub Releases v1.0.0 • Pure Go Binaries • macOS (M1-M4/Intel) • Linux • Windows • MIT License"
     }
 ]
 

@@ -15,10 +15,11 @@ import {
 import { portfolioData, Project } from "@/data/portfolioData";
 import { FadeIn } from "@/components/animations/FadeIn";
 
-type CategoryFilter = "All" | "Enterprise & Gov" | "Healthcare" | "E-Commerce" | "Media & Tools";
+type CategoryFilter = "All" | "Developer Tools & CLI" | "Enterprise & Gov" | "Healthcare" | "E-Commerce" | "Media & Tools";
 
 const filterCategories: CategoryFilter[] = [
   "All",
+  "Developer Tools & CLI",
   "Enterprise & Gov",
   "Healthcare",
   "E-Commerce",
