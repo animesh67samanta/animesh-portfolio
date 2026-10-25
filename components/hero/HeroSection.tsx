@@ -32,7 +32,7 @@ export function HeroSection() {
 
       {/* 3D Digital Globe Background Layer */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-auto">
-        <div className="absolute right-0 top-0 w-full lg:w-[68%] xl:w-[62%] h-full opacity-50 sm:opacity-75 lg:opacity-100 transition-opacity duration-300">
+        <div className="absolute right-0 top-0 w-full lg:w-[68%] xl:w-full h-full opacity-50 sm:opacity-75 lg:opacity-100 transition-opacity duration-300">
           <GlobeScene />
         </div>
         {/* Soft gradient fade on the left to guarantee optimal text contrast */}
