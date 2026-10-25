@@ -103,6 +103,71 @@ export const portfolioData = {
 
   services: [
     {
+      id: "custom-web-apps",
+      title: "Custom Web Applications & Full-Stack Development",
+      icon: "SiReact",
+      description:
+        "Engineering responsive, end-to-end web applications combining high-performance Laravel/PHP backends with dynamic React.js interfaces to digitize operations and scale business growth.",
+      deliverables: [
+        "End-to-end full-stack web applications (Laravel + React)",
+        "Mobile-responsive, accessible, and intuitive UI/UX design",
+        "Role-based customer dashboards & administrative control panels",
+        "State management, client-side caching & instant transitions"
+      ]
+    },
+    {
+      id: "erp-crm-cms",
+      title: "ERP, CRM & Custom CMS Systems",
+      icon: "FiGrid",
+      description:
+        "Developing centralized business management portals, CRM pipelines, ERP modules, and content management platforms tailored to your exact operational workflows and organizational hierarchy.",
+      deliverables: [
+        "Custom ERP module architecture (Inventory, Operations, Staff)",
+        "CRM pipeline tracking, lead conversion & customer activity logs",
+        "Granular Spatie RBAC & multi-tier authorization matrix",
+        "Bilingual / localization support & audit-proof data tracking"
+      ]
+    },
+    {
+      id: "billing-software",
+      title: "Billing Software & Invoicing Engines",
+      icon: "MdReceiptLong",
+      description:
+        "Automating municipal and commercial billing calculations, GST/tax computation, demand bill generation, payment reconciliation, and digital certificate delivery to eliminate manual accounting errors.",
+      deliverables: [
+        "Automated demand bill & invoice PDF generation (DOMPDF)",
+        "Complex tax algorithms, discount rules & penalty calculations",
+        "Direct payment gateway reconciliation (Razorpay, PhonePe)",
+        "Financial ledger synchronization & accounting audit reports"
+      ]
+    },
+    {
+      id: "workflow-automation",
+      title: "Workflow Automation & Operations Digitization",
+      icon: "LuWorkflow",
+      description:
+        "Replacing repetitive paperwork, manual spreadsheets, and approval delays with automated digital workflows, background queues, and scheduled jobs that slash manual workload by 65%+.",
+      deliverables: [
+        "Multi-stage digital approval workflows with digital signatures",
+        "Asynchronous queue processing (jobs, notifications, PDF renders)",
+        "Automated yearly/monthly CRON synchronization engines",
+        "Bulk chunked CSV/Excel ingestion & validation pipelines"
+      ]
+    },
+    {
+      id: "wordpress-websites",
+      title: "Custom WordPress Websites & E-Commerce",
+      icon: "SiWordpress",
+      description:
+        "Building fast, high-converting, and SEO-optimized custom WordPress websites, bespoke theme and plugin development, and scalable WooCommerce storefronts.",
+      deliverables: [
+        "Custom WordPress theme & plugin development from scratch",
+        "WooCommerce store setup, checkout customization & gateways",
+        "Speed optimization, query caching & security hardening",
+        "Headless WordPress setups & custom REST API endpoints"
+      ]
+    },
+    {
       id: "laravel-architecture",
       title: "Laravel Application Architecture",
       icon: "SiLaravel",
@@ -139,19 +204,6 @@ export const portfolioData = {
         "40%+ query latency reduction via EXPLAIN profiling",
         "Redis caching strategies & key invalidation",
         "Bilingual & internationalization schema support"
-      ]
-    },
-    {
-      id: "queue-automation",
-      title: "Queue Processing & Cron Jobs",
-      icon: "LuWorkflow",
-      description:
-        "Decoupling heavy computing from HTTP cycles using Laravel Queues, background jobs, schedulers, and event listeners for peak system responsiveness.",
-      deliverables: [
-        "Asynchronous email, SMS, and PDF generation",
-        "Automated yearly/monthly CRON synchronization",
-        "Queue failure retries & Redis queue drivers",
-        "Bulk CSV and Excel import workers"
       ]
     },
     {

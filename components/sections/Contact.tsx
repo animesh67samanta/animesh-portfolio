@@ -324,7 +324,7 @@ export function Contact() {
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    placeholder="e.g. Laravel Developer Role / Project Consultation"
+                    placeholder="e.g. Web App / ERP / Billing Software / Project Consultation"
                     aria-required="true"
                     aria-invalid={!!formErrors.subject}
                     aria-describedby={formErrors.subject ? "subject-error" : undefined}

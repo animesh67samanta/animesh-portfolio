@@ -1,21 +1,26 @@
 "use client";
 
 import React from "react";
-import { FiCheck, FiLayers } from "react-icons/fi";
-import { SiLaravel, SiMysql, SiOpenaccess } from "react-icons/si";
+import { FiCheck, FiLayers, FiGrid } from "react-icons/fi";
+import { SiLaravel, SiMysql, SiOpenaccess, SiReact, SiWordpress } from "react-icons/si";
 import { TbApi } from "react-icons/tb";
-import { MdPayment } from "react-icons/md";
+import { MdPayment, MdReceiptLong } from "react-icons/md";
 import { LuWorkflow } from "react-icons/lu";
 import { portfolioData } from "@/data/portfolioData";
 import { FadeIn } from "@/components/animations/FadeIn";
 
 const serviceIcons: Record<string, React.ElementType> = {
+  SiReact,
+  FiGrid,
+  MdReceiptLong,
+  LuWorkflow,
+  SiWordpress,
   SiLaravel,
   TbApi,
   SiMysql,
-  LuWorkflow,
   MdPayment,
-  SiOpenaccess
+  SiOpenaccess,
+  FiLayers
 };
 
 export function Services() {
@@ -26,14 +31,14 @@ export function Services() {
         <div className="flex items-center gap-3 mb-2">
           <span className="w-8 h-[2px] bg-cyan-500 dark:bg-cyan-400" />
           <span className="text-xs font-semibold text-cyan-600 dark:text-cyan-400 uppercase tracking-widest">
-            Expertise
+            Expertise & Solutions
           </span>
         </div>
         <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
-          Backend Engineering Services
+          Web Applications & Business Digitalization Services
         </h2>
-        <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-1.5 max-w-2xl">
-          Targeted solutions for enterprises and startups requiring scalable Laravel backends, database query acceleration, and bulletproof workflow automation.
+        <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-1.5 max-w-3xl leading-relaxed">
+          I help businesses, startups, and organizations digitize their operations through custom web applications, ERP/CRM/CMS systems, billing software, WordPress websites, and workflow automation. Specializing in Laravel, PHP, React, WordPress, MySQL, and REST APIs, I build secure, scalable, and user-friendly solutions that improve efficiency, reduce manual work, and support business growth.
         </p>
       </FadeIn>
 
