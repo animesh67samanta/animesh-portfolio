@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import * as THREE from "three";
 import Image from "next/image";
+import { useTheme } from "@/components/ThemeProvider";
 
 interface HeroSceneProps {
   fallbackImage?: string;
@@ -39,6 +40,8 @@ function isWebGLAvailable(): boolean {
 
 export function HeroScene({ fallbackImage = "/images/hero-3d-bg.png" }: HeroSceneProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const { theme } = useTheme();
+
   const prefersReducedMotion = useSyncExternalStore(
     subscribeReducedMotion,
     getReducedMotionSnapshot,
@@ -54,12 +57,14 @@ export function HeroScene({ fallbackImage = "/images/hero-3d-bg.png" }: HeroScen
     const container = containerRef.current;
     if (!container) return;
 
+    const isDark = theme === "dark";
+
     // Three.js setup
     const width = container.clientWidth || 400;
     const height = container.clientHeight || 400;
 
     const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x090b10, 0.045);
+    scene.fog = new THREE.FogExp2(isDark ? 0x090b10 : 0xf8fafc, 0.045);
 
     const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
     camera.position.set(0, 0, 7.5);
@@ -92,9 +97,9 @@ export function HeroScene({ fallbackImage = "/images/hero-3d-bg.png" }: HeroScen
     const outerGeo = new THREE.BoxGeometry(2.4, 2.4, 2.4);
     const outerEdges = new THREE.EdgesGeometry(outerGeo);
     const outerLineMat = new THREE.LineBasicMaterial({
-      color: 0x38bdf8,
+      color: isDark ? 0x38bdf8 : 0x0284c7,
       transparent: true,
-      opacity: 0.75,
+      opacity: isDark ? 0.75 : 0.85,
       linewidth: 1.5
     });
     const outerCube = new THREE.LineSegments(outerEdges, outerLineMat);
@@ -102,20 +107,20 @@ export function HeroScene({ fallbackImage = "/images/hero-3d-bg.png" }: HeroScen
 
     // Outer subtle translucent faces
     const outerFaceMat = new THREE.MeshBasicMaterial({
-      color: 0x06b6d4,
+      color: isDark ? 0x06b6d4 : 0x0ea5e9,
       transparent: true,
-      opacity: 0.08,
+      opacity: isDark ? 0.08 : 0.06,
       wireframe: false,
       side: THREE.DoubleSide
     });
     const outerMesh = new THREE.Mesh(outerGeo, outerFaceMat);
     mainGroup.add(outerMesh);
 
-    // 2. Inner Rotating Core Cube (Electric Violet)
+    // 2. Inner Rotating Core Cube (Electric Violet / Indigo)
     const innerGeo = new THREE.BoxGeometry(1.3, 1.3, 1.3);
     const innerEdges = new THREE.EdgesGeometry(innerGeo);
     const innerLineMat = new THREE.LineBasicMaterial({
-      color: 0x818cf8,
+      color: isDark ? 0x818cf8 : 0x4f46e5,
       transparent: true,
       opacity: 0.95
     });
@@ -123,64 +128,54 @@ export function HeroScene({ fallbackImage = "/images/hero-3d-bg.png" }: HeroScen
     mainGroup.add(innerCube);
 
     const innerCoreMat = new THREE.MeshBasicMaterial({
-      color: 0x6366f1,
+      color: isDark ? 0x6366f1 : 0x4338ca,
       transparent: true,
-      opacity: 0.15
+      opacity: isDark ? 0.15 : 0.1
     });
     const innerMesh = new THREE.Mesh(innerGeo, innerCoreMat);
     mainGroup.add(innerMesh);
 
-    // 3. Orbital Glowing Rings
-    const ringGeo1 = new THREE.TorusGeometry(2.2, 0.018, 16, 100);
+    // 3. Orbital Concentric Rings
+    const ringGeo1 = new THREE.RingGeometry(2.8, 2.84, 64);
     const ringMat1 = new THREE.MeshBasicMaterial({
-      color: 0x06b6d4,
+      color: isDark ? 0x06b6d4 : 0x0284c7,
+      side: THREE.DoubleSide,
       transparent: true,
-      opacity: 0.8
+      opacity: isDark ? 0.35 : 0.4
     });
     const ring1 = new THREE.Mesh(ringGeo1, ringMat1);
-    ring1.rotation.x = Math.PI / 2.8;
-    ring1.rotation.y = Math.PI / 5;
+    ring1.rotation.x = Math.PI / 3;
     mainGroup.add(ring1);
 
-    const ringGeo2 = new THREE.TorusGeometry(2.6, 0.014, 16, 100);
+    const ringGeo2 = new THREE.RingGeometry(3.3, 3.33, 64);
     const ringMat2 = new THREE.MeshBasicMaterial({
-      color: 0x8b5cf6,
+      color: isDark ? 0x818cf8 : 0x6366f1,
+      side: THREE.DoubleSide,
       transparent: true,
-      opacity: 0.65
+      opacity: isDark ? 0.25 : 0.3
     });
     const ring2 = new THREE.Mesh(ringGeo2, ringMat2);
-    ring2.rotation.x = -Math.PI / 3;
-    ring2.rotation.y = -Math.PI / 4;
+    ring2.rotation.y = Math.PI / 4;
     mainGroup.add(ring2);
 
-    // 4. Floating Ambient Star Dust / Particles
+    // 4. Subtle Star / Data Particle System
     const particleCount = 120;
     const particleGeo = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
-    const colors = new Float32Array(particleCount * 3);
 
-    const colorCyan = new THREE.Color(0x38bdf8);
-    const colorViolet = new THREE.Color(0x818cf8);
-
-    for (let i = 0; i < particleCount; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * 8;
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 8;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 8;
-
-      const mixedColor = Math.random() > 0.5 ? colorCyan : colorViolet;
-      colors[i * 3] = mixedColor.r;
-      colors[i * 3 + 1] = mixedColor.g;
-      colors[i * 3 + 2] = mixedColor.b;
+    for (let i = 0; i < particleCount * 3; i += 3) {
+      positions[i] = (Math.random() - 0.5) * 12;
+      positions[i + 1] = (Math.random() - 0.5) * 12;
+      positions[i + 2] = (Math.random() - 0.5) * 8;
     }
 
     particleGeo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-    particleGeo.setAttribute("color", new THREE.BufferAttribute(colors, 3));
 
     const particleMat = new THREE.PointsMaterial({
       size: 0.045,
-      vertexColors: true,
+      color: isDark ? 0x38bdf8 : 0x0284c7,
       transparent: true,
-      opacity: 0.75
+      opacity: isDark ? 0.75 : 0.8
     });
     const particleSystem = new THREE.Points(particleGeo, particleMat);
     scene.add(particleSystem);
@@ -239,27 +234,23 @@ export function HeroScene({ fallbackImage = "/images/hero-3d-bg.png" }: HeroScen
       ring1.rotation.z = elapsedTime * 0.25;
       ring2.rotation.z = -elapsedTime * 0.18;
 
-      // Float main group with mouse
-      mainGroup.position.x = mouseX * 0.5;
-      mainGroup.position.y = mouseY * 0.5 + Math.sin(elapsedTime * 1.2) * 0.08;
+      // Subtle main group rocking
+      mainGroup.rotation.y = mouseX * 0.35;
+      mainGroup.rotation.x = mouseY * 0.35;
 
-      // Slow particle drift
-      particleSystem.rotation.y = elapsedTime * 0.04;
+      // Slowly spin particles
+      particleSystem.rotation.y = elapsedTime * 0.03;
 
       renderer.render(scene, camera);
     };
 
     animate();
 
-    // Cleanup
+    // Cleanup on unmount or theme switch
     return () => {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("resize", handleResize);
-
-      if (container && renderer.domElement && container.contains(renderer.domElement)) {
-        container.removeChild(renderer.domElement);
-      }
 
       outerGeo.dispose();
       outerEdges.dispose();
@@ -283,11 +274,11 @@ export function HeroScene({ fallbackImage = "/images/hero-3d-bg.png" }: HeroScen
         container.removeChild(renderer.domElement);
       }
     };
-  }, [prefersReducedMotion, webglSupported]);
+  }, [prefersReducedMotion, webglSupported, theme]);
 
   if (prefersReducedMotion || !webglSupported) {
     return (
-      <div className="relative w-full h-full min-h-[380px] flex items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-slate-950 via-[#0d121f] to-slate-950 border border-slate-800/60 shadow-2xl">
+      <div className="relative w-full h-full min-h-[380px] flex items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-slate-100 via-slate-200 to-slate-100 dark:from-slate-950 dark:via-[#0d121f] dark:to-slate-950 border border-slate-200 dark:border-slate-800/60 shadow-xl dark:shadow-2xl">
         <Image
           src={fallbackImage}
           alt="3D Interactive Abstract Hero Element"
@@ -295,7 +286,7 @@ export function HeroScene({ fallbackImage = "/images/hero-3d-bg.png" }: HeroScen
           className="object-cover opacity-85"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#090b10] via-transparent to-transparent opacity-80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#f8fafc] dark:from-[#090b10] via-transparent to-transparent opacity-80" />
       </div>
     );
   }
@@ -303,7 +294,7 @@ export function HeroScene({ fallbackImage = "/images/hero-3d-bg.png" }: HeroScen
   return (
     <div className="relative w-full h-full min-h-[400px] flex items-center justify-center overflow-hidden">
       {/* Subtle ambient backdrop image with low opacity for depth */}
-      <div className="absolute inset-0 opacity-25 pointer-events-none select-none">
+      <div className="absolute inset-0 opacity-15 dark:opacity-25 pointer-events-none select-none transition-opacity duration-250">
         <Image
           src={fallbackImage}
           alt="Abstract 3D Background Lighting"
@@ -321,8 +312,8 @@ export function HeroScene({ fallbackImage = "/images/hero-3d-bg.png" }: HeroScen
       />
 
       {/* Floating Interactive Badge Indicator */}
-      <div className="absolute bottom-3 right-4 z-20 hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/80 border border-cyan-500/20 backdrop-blur-md text-[11px] text-slate-300 pointer-events-none">
-        <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+      <div className="absolute bottom-3 right-4 z-20 hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-cyan-500/20 backdrop-blur-md text-[11px] text-slate-700 dark:text-slate-300 pointer-events-none shadow-sm dark:shadow-none">
+        <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 dark:bg-cyan-400 animate-pulse" />
         <span>Three.js Interactive Core (Move Cursor)</span>
       </div>
     </div>

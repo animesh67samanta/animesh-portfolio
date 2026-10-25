@@ -89,19 +89,19 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-16 border-t border-slate-800/80 scroll-mt-24">
+    <section id="contact" className="py-16 border-t border-slate-200 dark:border-slate-800/80 scroll-mt-24">
       {/* Header */}
       <FadeIn direction="up">
         <div className="flex items-center gap-3 mb-2">
-          <span className="w-8 h-[2px] bg-cyan-400" />
-          <span className="text-xs font-semibold text-cyan-400 uppercase tracking-widest">
+          <span className="w-8 h-[2px] bg-cyan-500 dark:bg-cyan-400" />
+          <span className="text-xs font-semibold text-cyan-600 dark:text-cyan-400 uppercase tracking-widest">
             Get In Touch
           </span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
           Let’s Discuss Your Next Backend Project
         </h2>
-        <p className="text-slate-400 text-xs sm:text-sm mt-1.5 max-w-2xl">
+        <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-1.5 max-w-2xl">
           Whether you need a new Laravel platform, database optimization, or an architectural consultation, feel free to reach out.
         </p>
       </FadeIn>
@@ -110,57 +110,57 @@ export function Contact() {
         {/* Left Column: Direct Contact Info Cards */}
         <div className="lg:col-span-5 space-y-4">
           <FadeIn direction="up" delay={0.1}>
-            <div className="bg-[#111520] border border-slate-800/90 rounded-2xl p-6 shadow-xl space-y-4">
-              <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-2">
+            <div className="bg-white dark:bg-[#111520] border border-slate-200 dark:border-slate-800/90 rounded-2xl p-6 shadow-xl dark:shadow-black/30 space-y-4">
+              <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-2">
                 Direct Contact Channels
               </h3>
 
               <div className="flex items-start gap-3.5 pt-2">
-                <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-600 dark:text-cyan-400 shrink-0">
                   <FiMail className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-[11px] uppercase font-semibold text-slate-400 block">
+                  <span className="text-[11px] uppercase font-semibold text-slate-500 dark:text-slate-400 block">
                     Email Address
                   </span>
                   <a
                     href={portfolioData.personal.socialLinks.email}
-                    className="text-sm font-semibold text-white hover:text-cyan-400 transition-colors break-all"
+                    className="text-sm font-semibold text-slate-900 dark:text-white hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors break-all"
                   >
                     {portfolioData.personal.email}
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3.5 pt-2 border-t border-slate-800/70">
-                <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 shrink-0">
+              <div className="flex items-start gap-3.5 pt-2 border-t border-slate-100 dark:border-slate-800/70">
+                <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-600 dark:text-cyan-400 shrink-0">
                   <FiPhone className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-[11px] uppercase font-semibold text-slate-400 block">
+                  <span className="text-[11px] uppercase font-semibold text-slate-500 dark:text-slate-400 block">
                     Phone & WhatsApp
                   </span>
                   <a
                     href={portfolioData.personal.socialLinks.phone}
-                    className="text-sm font-semibold text-white hover:text-cyan-400 transition-colors"
+                    className="text-sm font-semibold text-slate-900 dark:text-white hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
                   >
                     {portfolioData.personal.phone}
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3.5 pt-2 border-t border-slate-800/70">
-                <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 shrink-0">
+              <div className="flex items-start gap-3.5 pt-2 border-t border-slate-100 dark:border-slate-800/70">
+                <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-600 dark:text-cyan-400 shrink-0">
                   <FiMapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-[11px] uppercase font-semibold text-slate-400 block">
+                  <span className="text-[11px] uppercase font-semibold text-slate-500 dark:text-slate-400 block">
                     Location
                   </span>
-                  <span className="text-sm font-semibold text-white">
+                  <span className="text-sm font-semibold text-slate-900 dark:text-white">
                     {portfolioData.personal.location}
                   </span>
-                  <span className="text-xs text-slate-400 block mt-0.5">
+                  <span className="text-xs text-slate-500 dark:text-slate-400 block mt-0.5">
                     Open to Relocation & Remote Work
                   </span>
                 </div>
@@ -169,17 +169,17 @@ export function Contact() {
           </FadeIn>
 
           <FadeIn direction="up" delay={0.2}>
-            <div className="bg-[#111520] border border-slate-800/90 rounded-2xl p-5 flex items-center justify-between">
+            <div className="bg-white dark:bg-[#111520] border border-slate-200 dark:border-slate-800/90 rounded-2xl p-5 flex items-center justify-between shadow-md dark:shadow-none">
               <div>
-                <span className="text-xs font-bold text-white block">Connect Online</span>
-                <span className="text-[11px] text-slate-400">Professional Profiles</span>
+                <span className="text-xs font-bold text-slate-900 dark:text-white block">Connect Online</span>
+                <span className="text-[11px] text-slate-500 dark:text-slate-400">Professional Profiles</span>
               </div>
               <div className="flex items-center gap-2">
                 <a
                   href={portfolioData.personal.socialLinks.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-slate-800 hover:bg-cyan-500/20 border border-slate-700 text-slate-300 hover:text-cyan-400 transition-colors"
+                  className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-cyan-50 dark:hover:bg-cyan-500/20 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
                   aria-label="GitHub Profile"
                 >
                   <SiGithub className="w-4 h-4" />
@@ -188,7 +188,7 @@ export function Contact() {
                   href={portfolioData.personal.socialLinks.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-slate-800 hover:bg-cyan-500/20 border border-slate-700 text-slate-300 hover:text-cyan-400 transition-colors"
+                  className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-cyan-50 dark:hover:bg-cyan-500/20 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
                   aria-label="LinkedIn Profile"
                 >
                   <FaLinkedin className="w-4 h-4" />
@@ -201,11 +201,11 @@ export function Contact() {
         {/* Right Column: Contact Form with EmailJS */}
         <div className="lg:col-span-7">
           <FadeIn direction="up" delay={0.15}>
-            <div className="bg-[#111520] border border-slate-800/90 rounded-3xl p-6 sm:p-8 shadow-xl shadow-black/30">
-              <h3 className="text-base font-bold text-white mb-1">
+            <div className="bg-white dark:bg-[#111520] border border-slate-200 dark:border-slate-800/90 rounded-3xl p-6 sm:p-8 shadow-xl dark:shadow-black/30">
+              <h3 className="text-base font-bold text-slate-900 dark:text-white mb-1">
                 Send a Direct Message
               </h3>
-              <p className="text-xs text-slate-400 mb-6">
+              <p className="text-xs text-slate-600 dark:text-slate-400 mb-6">
                 Fill in the form below. Messages are delivered directly to Animesh via EmailJS.
               </p>
 
@@ -214,15 +214,15 @@ export function Contact() {
                 <div
                   className={`mb-6 p-4 rounded-xl text-xs sm:text-sm flex items-start gap-3 ${
                     statusMessage.type === "success"
-                      ? "bg-emerald-500/15 border border-emerald-500/40 text-emerald-300"
-                      : "bg-rose-500/15 border border-rose-500/40 text-rose-300"
+                      ? "bg-emerald-500/15 border border-emerald-500/40 text-emerald-700 dark:text-emerald-300"
+                      : "bg-rose-500/15 border border-rose-500/40 text-rose-700 dark:text-rose-300"
                   }`}
                   role="alert"
                 >
                   {statusMessage.type === "success" ? (
-                    <FiCheckCircle className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+                    <FiCheckCircle className="w-5 h-5 text-emerald-500 dark:text-emerald-400 shrink-0 mt-0.5" />
                   ) : (
-                    <FiAlertCircle className="w-5 h-5 text-rose-400 shrink-0 mt-0.5" />
+                    <FiAlertCircle className="w-5 h-5 text-rose-500 dark:text-rose-400 shrink-0 mt-0.5" />
                   )}
                   <span>{statusMessage.text}</span>
                 </div>
@@ -246,9 +246,9 @@ export function Contact() {
                   <div>
                     <label
                       htmlFor="name"
-                      className="block text-xs font-semibold text-slate-300 mb-1.5"
+                      className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5"
                     >
-                      Your Name <span className="text-cyan-400">*</span>
+                      Your Name <span className="text-cyan-600 dark:text-cyan-400">*</span>
                     </label>
                     <input
                       type="text"
@@ -260,12 +260,12 @@ export function Contact() {
                       aria-required="true"
                       aria-invalid={!!formErrors.name}
                       aria-describedby={formErrors.name ? "name-error" : undefined}
-                      className={`w-full px-4 py-3 rounded-xl bg-slate-900/90 text-sm text-white placeholder-slate-500 border transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-400/50 ${
-                        formErrors.name ? "border-rose-500" : "border-slate-800 focus:border-cyan-500"
+                      className={`w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/90 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 border transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-400/50 focus:bg-white dark:focus:bg-slate-900 ${
+                        formErrors.name ? "border-rose-500" : "border-slate-200 dark:border-slate-800 focus:border-cyan-500"
                       }`}
                     />
                     {formErrors.name && (
-                      <p id="name-error" className="text-[11px] text-rose-400 mt-1">
+                      <p id="name-error" className="text-[11px] text-rose-500 dark:text-rose-400 mt-1">
                         {formErrors.name}
                       </p>
                     )}
@@ -275,9 +275,9 @@ export function Contact() {
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-xs font-semibold text-slate-300 mb-1.5"
+                      className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5"
                     >
-                      Your Email <span className="text-cyan-400">*</span>
+                      Your Email <span className="text-cyan-600 dark:text-cyan-400">*</span>
                     </label>
                     <input
                       type="email"
@@ -289,12 +289,12 @@ export function Contact() {
                       aria-required="true"
                       aria-invalid={!!formErrors.email}
                       aria-describedby={formErrors.email ? "email-error" : undefined}
-                      className={`w-full px-4 py-3 rounded-xl bg-slate-900/90 text-sm text-white placeholder-slate-500 border transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-400/50 ${
-                        formErrors.email ? "border-rose-500" : "border-slate-800 focus:border-cyan-500"
+                      className={`w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/90 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 border transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-400/50 focus:bg-white dark:focus:bg-slate-900 ${
+                        formErrors.email ? "border-rose-500" : "border-slate-200 dark:border-slate-800 focus:border-cyan-500"
                       }`}
                     />
                     {formErrors.email && (
-                      <p id="email-error" className="text-[11px] text-rose-400 mt-1">
+                      <p id="email-error" className="text-[11px] text-rose-500 dark:text-rose-400 mt-1">
                         {formErrors.email}
                       </p>
                     )}
@@ -305,9 +305,9 @@ export function Contact() {
                 <div>
                   <label
                     htmlFor="subject"
-                    className="block text-xs font-semibold text-slate-300 mb-1.5"
+                    className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5"
                   >
-                    Subject <span className="text-cyan-400">*</span>
+                    Subject <span className="text-cyan-600 dark:text-cyan-400">*</span>
                   </label>
                   <input
                     type="text"
@@ -319,12 +319,12 @@ export function Contact() {
                     aria-required="true"
                     aria-invalid={!!formErrors.subject}
                     aria-describedby={formErrors.subject ? "subject-error" : undefined}
-                    className={`w-full px-4 py-3 rounded-xl bg-slate-900/90 text-sm text-white placeholder-slate-500 border transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-400/50 ${
-                      formErrors.subject ? "border-rose-500" : "border-slate-800 focus:border-cyan-500"
+                    className={`w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/90 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 border transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-400/50 focus:bg-white dark:focus:bg-slate-900 ${
+                      formErrors.subject ? "border-rose-500" : "border-slate-200 dark:border-slate-800 focus:border-cyan-500"
                     }`}
                   />
                   {formErrors.subject && (
-                    <p id="subject-error" className="text-[11px] text-rose-400 mt-1">
+                    <p id="subject-error" className="text-[11px] text-rose-500 dark:text-rose-400 mt-1">
                       {formErrors.subject}
                     </p>
                   )}
@@ -334,9 +334,9 @@ export function Contact() {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-xs font-semibold text-slate-300 mb-1.5"
+                    className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5"
                   >
-                    Message <span className="text-cyan-400">*</span>
+                    Message <span className="text-cyan-600 dark:text-cyan-400">*</span>
                   </label>
                   <textarea
                     id="message"
@@ -348,12 +348,12 @@ export function Contact() {
                     aria-required="true"
                     aria-invalid={!!formErrors.message}
                     aria-describedby={formErrors.message ? "message-error" : undefined}
-                    className={`w-full px-4 py-3 rounded-xl bg-slate-900/90 text-sm text-white placeholder-slate-500 border transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-400/50 ${
-                      formErrors.message ? "border-rose-500" : "border-slate-800 focus:border-cyan-500"
+                    className={`w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/90 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 border transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-400/50 focus:bg-white dark:focus:bg-slate-900 ${
+                      formErrors.message ? "border-rose-500" : "border-slate-200 dark:border-slate-800 focus:border-cyan-500"
                     }`}
                   />
                   {formErrors.message && (
-                    <p id="message-error" className="text-[11px] text-rose-400 mt-1">
+                    <p id="message-error" className="text-[11px] text-rose-500 dark:text-rose-400 mt-1">
                       {formErrors.message}
                     </p>
                   )}
@@ -361,7 +361,7 @@ export function Contact() {
 
                 {/* Submit Button */}
                 <div className="pt-2 flex items-center justify-between">
-                  <span className="text-[11px] text-slate-400">
+                  <span className="text-[11px] text-slate-500 dark:text-slate-400">
                     Spam-protected • Client-side validated
                   </span>
 

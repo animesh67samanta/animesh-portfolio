@@ -20,19 +20,19 @@ const serviceIcons: Record<string, React.ElementType> = {
 
 export function Services() {
   return (
-    <section id="services" className="py-16 border-t border-slate-800/80 scroll-mt-24">
+    <section id="services" className="py-16 border-t border-slate-200 dark:border-slate-800/80 scroll-mt-24 transition-colors duration-250">
       {/* Header */}
       <FadeIn direction="up">
         <div className="flex items-center gap-3 mb-2">
-          <span className="w-8 h-[2px] bg-cyan-400" />
-          <span className="text-xs font-semibold text-cyan-400 uppercase tracking-widest">
+          <span className="w-8 h-[2px] bg-cyan-500 dark:bg-cyan-400" />
+          <span className="text-xs font-semibold text-cyan-600 dark:text-cyan-400 uppercase tracking-widest">
             Expertise
           </span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
           Backend Engineering Services
         </h2>
-        <p className="text-slate-400 text-xs sm:text-sm mt-1.5 max-w-2xl">
+        <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-1.5 max-w-2xl">
           Targeted solutions for enterprises and startups requiring scalable Laravel backends, database query acceleration, and bulletproof workflow automation.
         </p>
       </FadeIn>
@@ -43,28 +43,28 @@ export function Services() {
           const Icon = serviceIcons[svc.icon] || FiLayers;
           return (
             <FadeIn key={svc.id} direction="up" delay={0.08 * idx}>
-              <div className="bg-[#111520] hover:bg-[#141926] border border-slate-800/90 hover:border-cyan-500/40 rounded-3xl p-6 transition-all duration-300 flex flex-col justify-between group h-full shadow-lg shadow-black/20">
+              <div className="bg-white dark:bg-[#111520] hover:bg-slate-50 dark:hover:bg-[#141926] border border-slate-200 dark:border-slate-800/90 hover:border-cyan-400 dark:hover:border-cyan-500/40 rounded-3xl p-6 transition-all duration-300 flex flex-col justify-between group h-full shadow-md shadow-slate-200/50 dark:shadow-lg dark:shadow-black/20">
                 <div>
-                  <div className="w-12 h-12 rounded-2xl bg-slate-800/80 group-hover:bg-cyan-500/10 border border-slate-700/60 group-hover:border-cyan-500/30 flex items-center justify-center text-cyan-400 transition-colors mb-5">
+                  <div className="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-slate-800/80 group-hover:bg-cyan-50 dark:group-hover:bg-cyan-500/10 border border-slate-200 dark:border-slate-700/60 group-hover:border-cyan-300 dark:group-hover:border-cyan-500/30 flex items-center justify-center text-cyan-600 dark:text-cyan-400 transition-colors mb-5">
                     <Icon className="w-6 h-6" />
                   </div>
 
-                  <h3 className="text-base font-bold text-white tracking-tight group-hover:text-cyan-300 transition-colors">
+                  <h3 className="text-base font-bold text-slate-900 dark:text-white tracking-tight group-hover:text-cyan-600 dark:group-hover:text-cyan-300 transition-colors">
                     {svc.title}
                   </h3>
-                  <p className="text-xs text-slate-300 mt-2.5 leading-relaxed">
+                  <p className="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed">
                     {svc.description}
                   </p>
                 </div>
 
-                <div className="mt-5 pt-4 border-t border-slate-800/70">
-                  <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider block mb-2">
+                <div className="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800/70">
+                  <span className="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 tracking-wider block mb-2">
                     Key Deliverables
                   </span>
                   <ul className="space-y-1.5">
                     {svc.deliverables.map((item, dIdx) => (
-                      <li key={dIdx} className="flex items-center gap-2 text-xs text-slate-300">
-                        <FiCheck className="text-cyan-400 w-3 h-3 shrink-0" />
+                      <li key={dIdx} className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-300">
+                        <FiCheck className="text-cyan-600 dark:text-cyan-400 w-3 h-3 shrink-0" />
                         <span>{item}</span>
                       </li>
                     ))}

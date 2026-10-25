@@ -12,18 +12,18 @@ export function Footer() {
   };
 
   return (
-    <footer className="border-t border-slate-800/80 bg-[#07090e] py-8 text-xs text-slate-400">
+    <footer className="border-t border-slate-200 dark:border-slate-800/80 bg-slate-100 dark:bg-[#07090e] py-8 text-xs text-slate-500 dark:text-slate-400">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
         {/* Left: Copyright */}
         <div className="flex items-center gap-2 text-center sm:text-left">
           <span>
             © {new Date().getFullYear()}{" "}
-            <strong className="text-white font-medium">Animesh Samanta</strong>. All rights reserved.
+            <strong className="text-slate-900 dark:text-white font-medium">Animesh Samanta</strong>. All rights reserved.
           </span>
         </div>
 
         {/* Center: Tech Badge */}
-        <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-[11px] text-slate-300">
+        <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-[11px] text-slate-600 dark:text-slate-300 shadow-sm dark:shadow-none">
           <span>Engineered with Next.js 16, TypeScript & Three.js</span>
         </div>
 
@@ -33,7 +33,7 @@ export function Footer() {
             href={portfolioData.personal.socialLinks.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-cyan-400 transition-colors"
+            className="text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
             aria-label="GitHub Profile"
           >
             <SiGithub className="w-4 h-4" />
@@ -42,7 +42,7 @@ export function Footer() {
             href={portfolioData.personal.socialLinks.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-cyan-400 transition-colors"
+            className="text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
             aria-label="LinkedIn Profile"
           >
             <FaLinkedin className="w-4 h-4" />
@@ -50,7 +50,7 @@ export function Footer() {
 
           <button
             onClick={scrollToTop}
-            className="p-2 rounded-xl bg-slate-800/80 hover:bg-cyan-500/20 border border-slate-700/60 hover:border-cyan-500/50 text-slate-300 hover:text-cyan-400 transition-all flex items-center justify-center"
+            className="p-2 rounded-xl bg-white dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-cyan-500/20 border border-slate-200 dark:border-slate-700/60 hover:border-cyan-500/50 text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all flex items-center justify-center shadow-sm dark:shadow-none"
             aria-label="Scroll back to top"
           >
             <FiArrowUp className="w-4 h-4" />

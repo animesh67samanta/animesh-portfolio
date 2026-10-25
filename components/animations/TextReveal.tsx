@@ -38,7 +38,7 @@ export function TextReveal({
           animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
           exit={{ y: -20, opacity: 0, filter: "blur(4px)" }}
           transition={{ duration: 0.45, ease: "easeInOut" }}
-          className="inline-block text-cyan-400 font-semibold"
+          className="inline-block text-cyan-600 dark:text-cyan-400 font-semibold"
         >
           {phrases[index]}
         </motion.span>

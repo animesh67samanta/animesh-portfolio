@@ -38,16 +38,16 @@ export function About() {
   ];
 
   return (
-    <section id="about" className="py-16 border-t border-slate-800/80 scroll-mt-24">
+    <section id="about" className="py-16 border-t border-slate-200 dark:border-slate-800/80 scroll-mt-24 transition-colors duration-250">
       {/* Section Header */}
       <FadeIn direction="up">
         <div className="flex items-center gap-3 mb-2">
-          <span className="w-8 h-[2px] bg-cyan-400" />
-          <span className="text-xs font-semibold text-cyan-400 uppercase tracking-widest">
+          <span className="w-8 h-[2px] bg-cyan-500 dark:bg-cyan-400" />
+          <span className="text-xs font-semibold text-cyan-600 dark:text-cyan-400 uppercase tracking-widest">
             About Me
           </span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
           Architecting Scalable, Resilient Backend Systems
         </h2>
       </FadeIn>
@@ -57,40 +57,40 @@ export function About() {
         {/* Left Column: Biography & Highlights */}
         <div className="lg:col-span-7 space-y-6">
           <FadeIn direction="up" delay={0.1}>
-            <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+            <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
               {portfolioData.personal.fullBio}
             </p>
           </FadeIn>
 
           <FadeIn direction="up" delay={0.2}>
-            <div className="bg-[#121622]/90 border border-slate-800/80 rounded-2xl p-6 shadow-xl space-y-4">
-              <h3 className="text-sm font-semibold text-white uppercase tracking-wider flex items-center gap-2">
-                <FiTrendingUp className="text-cyan-400" />
+            <div className="bg-white dark:bg-[#121622]/90 border border-slate-200 dark:border-slate-800/80 rounded-2xl p-6 shadow-md shadow-slate-200/50 dark:shadow-xl space-y-4 transition-colors duration-250">
+              <h3 className="text-sm font-semibold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
+                <FiTrendingUp className="text-cyan-600 dark:text-cyan-400" />
                 <span>Verified Impact Highlights</span>
               </h3>
-              <ul className="space-y-3 text-xs sm:text-sm text-slate-300">
+              <ul className="space-y-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
                 <li className="flex items-start gap-3">
-                  <FiCheckCircle className="text-cyan-400 w-4 h-4 mt-0.5 shrink-0" />
+                  <FiCheckCircle className="text-cyan-600 dark:text-cyan-400 w-4 h-4 mt-0.5 shrink-0" />
                   <span>
-                    <strong className="text-white">65%+ Turnaround Reduction:</strong> Automated municipal property tax assessments, cutting citizen certificate generation from 3-4 days to under 10 minutes.
+                    <strong className="text-slate-900 dark:text-white">65%+ Turnaround Reduction:</strong> Automated municipal property tax assessments, cutting citizen certificate generation from 3-4 days to under 10 minutes.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <FiCheckCircle className="text-cyan-400 w-4 h-4 mt-0.5 shrink-0" />
+                  <FiCheckCircle className="text-cyan-600 dark:text-cyan-400 w-4 h-4 mt-0.5 shrink-0" />
                   <span>
-                    <strong className="text-white">40% Query Latency Cut:</strong> Restructured complex relational JOIN operations and added targeted indexing for an affiliate multi-level earning platform.
+                    <strong className="text-slate-900 dark:text-white">40% Query Latency Cut:</strong> Restructured complex relational JOIN operations and added targeted indexing for an affiliate multi-level earning platform.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <FiCheckCircle className="text-cyan-400 w-4 h-4 mt-0.5 shrink-0" />
+                  <FiCheckCircle className="text-cyan-600 dark:text-cyan-400 w-4 h-4 mt-0.5 shrink-0" />
                   <span>
-                    <strong className="text-white">50% Faster Form Interactivity:</strong> Modernized legacy synchronous forms into responsive AJAX workflows, halving perceived load times.
+                    <strong className="text-slate-900 dark:text-white">50% Faster Form Interactivity:</strong> Modernized legacy synchronous forms into responsive AJAX workflows, halving perceived load times.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <FiCheckCircle className="text-cyan-400 w-4 h-4 mt-0.5 shrink-0" />
+                  <FiCheckCircle className="text-cyan-600 dark:text-cyan-400 w-4 h-4 mt-0.5 shrink-0" />
                   <span>
-                    <strong className="text-white">AI Microservice Integration:</strong> Connected Laravel backends to FastAPI endpoints for intelligent content generation and automated suggestions.
+                    <strong className="text-slate-900 dark:text-white">AI Microservice Integration:</strong> Connected Laravel backends to FastAPI endpoints for intelligent content generation and automated suggestions.
                   </span>
                 </li>
               </ul>
@@ -101,8 +101,8 @@ export function About() {
         {/* Right Column: Engineering Principles & Philosophy */}
         <div className="lg:col-span-5 space-y-4">
           <FadeIn direction="up" delay={0.25}>
-            <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4 flex items-center gap-2">
-              <FiCode className="text-cyan-400" />
+            <h3 className="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-4 flex items-center gap-2">
+              <FiCode className="text-cyan-600 dark:text-cyan-400" />
               <span>Engineering Standards</span>
             </h3>
           </FadeIn>
@@ -112,14 +112,14 @@ export function About() {
               const Icon = p.icon;
               return (
                 <FadeIn key={idx} direction="up" delay={0.15 * (idx + 1)}>
-                  <div className="bg-[#121622]/60 hover:bg-[#151a28] border border-slate-800/80 hover:border-cyan-500/30 rounded-xl p-4 transition-all duration-200">
+                  <div className="bg-white dark:bg-[#121622]/60 hover:bg-slate-50 dark:hover:bg-[#151a28] border border-slate-200 dark:border-slate-800/80 hover:border-cyan-400 dark:hover:border-cyan-500/30 rounded-xl p-4 transition-all duration-200 shadow-sm dark:shadow-none">
                     <div className="flex items-center gap-3 mb-1.5">
-                      <div className="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 shrink-0">
+                      <div className="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-600 dark:text-cyan-400 shrink-0">
                         <Icon className="w-4 h-4" />
                       </div>
-                      <h4 className="text-sm font-semibold text-white">{p.title}</h4>
+                      <h4 className="text-sm font-semibold text-slate-900 dark:text-white">{p.title}</h4>
                     </div>
-                    <p className="text-xs text-slate-400 pl-11 leading-relaxed">{p.desc}</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 pl-11 leading-relaxed">{p.desc}</p>
                   </div>
                 </FadeIn>
               );

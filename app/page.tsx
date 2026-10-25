@@ -13,10 +13,10 @@ import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#090b10] text-[#f8fafc] flex flex-col relative overflow-x-hidden selection:bg-cyan-400 selection:text-slate-950">
+    <div className="min-h-screen bg-[#f8fafc] text-slate-900 dark:bg-[#090b10] dark:text-[#f8fafc] flex flex-col relative overflow-x-hidden selection:bg-cyan-400 selection:text-slate-950 transition-colors duration-250">
       {/* Background Subtle Gradient Glows */}
-      <div className="fixed top-0 left-1/4 w-[500px] h-[500px] bg-cyan-500/5 rounded-full blur-[140px] pointer-events-none -z-10" />
-      <div className="fixed bottom-1/4 right-10 w-[600px] h-[600px] bg-indigo-500/5 rounded-full blur-[160px] pointer-events-none -z-10" />
+      <div className="fixed top-0 left-1/4 w-[500px] h-[500px] bg-sky-400/10 dark:bg-cyan-500/5 rounded-full blur-[140px] pointer-events-none -z-10" />
+      <div className="fixed bottom-1/4 right-10 w-[600px] h-[600px] bg-indigo-400/10 dark:bg-indigo-500/5 rounded-full blur-[160px] pointer-events-none -z-10" />
 
       {/* Navigation Header */}
       <Navbar />

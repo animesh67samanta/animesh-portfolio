@@ -21,17 +21,17 @@ export function Hero() {
         {/* Left Column: Hero Text & CTAs */}
         <div className="lg:col-span-7 space-y-6">
           <FadeIn direction="up" delay={0.1}>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-800 text-xs text-slate-300">
-              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
-              <span className="text-slate-400">{portfolioData.personal.greeting}</span>
-              <span className="font-semibold text-white">Animesh Samanta</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 text-xs text-slate-700 dark:text-slate-300 shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-cyan-500 dark:bg-cyan-400 animate-ping" />
+              <span className="text-slate-500 dark:text-slate-400">{portfolioData.personal.greeting}</span>
+              <span className="font-semibold text-slate-900 dark:text-white">Animesh Samanta</span>
             </div>
           </FadeIn>
 
           <FadeIn direction="up" delay={0.2}>
-            <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-[1.15]">
+            <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.15]">
               Laravel Backend Developer{" "}
-              <span className="block text-slate-400 text-2xl sm:text-3xl font-normal mt-2">
+              <span className="block text-slate-500 dark:text-slate-400 text-2xl sm:text-3xl font-normal mt-2">
                 Specialized in{" "}
                 <TextReveal
                   phrases={portfolioData.personal.secondaryRoles}
@@ -42,7 +42,7 @@ export function Hero() {
           </FadeIn>
 
           <FadeIn direction="up" delay={0.3}>
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-xl">
+            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-xl">
               {portfolioData.personal.shortBio}
             </p>
           </FadeIn>
@@ -53,12 +53,12 @@ export function Hero() {
               {portfolioData.metrics.map((metric, i) => (
                 <div
                   key={i}
-                  className="bg-[#121622]/80 border border-slate-800/80 rounded-xl p-3 text-center sm:text-left"
+                  className="bg-white dark:bg-[#121622]/80 border border-slate-200 dark:border-slate-800/80 rounded-xl p-3 text-center sm:text-left shadow-sm dark:shadow-none transition-colors duration-200"
                 >
-                  <span className="block text-xl sm:text-2xl font-black text-cyan-400">
+                  <span className="block text-xl sm:text-2xl font-black text-cyan-600 dark:text-cyan-400">
                     {metric.value}
                   </span>
-                  <span className="block text-[11px] font-medium text-slate-400 truncate">
+                  <span className="block text-[11px] font-medium text-slate-500 dark:text-slate-400 truncate">
                     {metric.label}
                   </span>
                 </div>
@@ -80,9 +80,9 @@ export function Hero() {
               <a
                 href={portfolioData.personal.resumePdf}
                 download="Animesh-Samanta-Resume.pdf"
-                className="flex items-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold text-white bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-cyan-500/50 transition-all duration-200 shadow-sm"
+                className="flex items-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold text-slate-800 dark:text-white bg-white dark:bg-slate-900/90 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 hover:border-cyan-500/50 transition-all duration-200 shadow-sm"
               >
-                <FiDownload className="text-cyan-400" />
+                <FiDownload className="text-cyan-600 dark:text-cyan-400" />
                 <span>Download Resume</span>
               </a>
 
@@ -91,7 +91,7 @@ export function Hero() {
                   href={portfolioData.personal.socialLinks.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-400 hover:text-cyan-400 hover:border-cyan-500/40 transition-colors"
+                  className="p-3 rounded-xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:border-cyan-500/40 transition-colors shadow-sm"
                   aria-label="GitHub Profile"
                 >
                   <SiGithub className="w-4 h-4" />
@@ -100,7 +100,7 @@ export function Hero() {
                   href={portfolioData.personal.socialLinks.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-400 hover:text-cyan-400 hover:border-cyan-500/40 transition-colors"
+                  className="p-3 rounded-xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:border-cyan-500/40 transition-colors shadow-sm"
                   aria-label="LinkedIn Profile"
                 >
                   <FaLinkedin className="w-4 h-4" />
@@ -113,7 +113,7 @@ export function Hero() {
         {/* Right Column: Three.js Interactive 3D Visual */}
         <div className="lg:col-span-5 h-[380px] sm:h-[450px] relative">
           <FadeIn direction="left" delay={0.25} className="w-full h-full">
-            <div className="w-full h-full rounded-3xl bg-[#0c101a] border border-slate-800/80 shadow-2xl shadow-cyan-950/20 overflow-hidden relative">
+            <div className="w-full h-full rounded-3xl bg-slate-100/80 dark:bg-[#0c101a] border border-slate-200 dark:border-slate-800/80 shadow-xl dark:shadow-2xl shadow-slate-200/50 dark:shadow-cyan-950/20 overflow-hidden relative transition-colors duration-250">
               <HeroScene fallbackImage={portfolioData.personal.heroBg} />
             </div>
           </FadeIn>

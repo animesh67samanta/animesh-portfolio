@@ -1,17 +1,29 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --card-bg: #ffffff;
+  --card-border: rgba(0, 0, 0, 0.08);
+  --accent-cyan: #0284c7;
+  --accent-indigo: #4f46e5;
+  color-scheme: light;
+}
+
+.dark {
   --background: #090b10;
   --foreground: #f8fafc;
   --card-bg: #111520;
   --card-border: rgba(255, 255, 255, 0.08);
   --accent-cyan: #06b6d4;
   --accent-indigo: #6366f1;
+  color-scheme: dark;
 }
 
 html {
   scroll-behavior: smooth;
-  color-scheme: dark;
 }
 
 body {
@@ -21,6 +33,7 @@ body {
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 /* Custom Scrollbar */
@@ -29,26 +42,48 @@ body {
 }
 
 ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.dark ::-webkit-scrollbar-track {
   background: #090b10;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e2638;
+  background: #cbd5e1;
   border-radius: 4px;
 }
 
+.dark ::-webkit-scrollbar-thumb {
+  background: #1e2638;
+}
+
 ::-webkit-scrollbar-thumb:hover {
+  background: #0284c7;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
   background: #06b6d4;
 }
 
 /* Selection Color */
 ::selection {
+  background: #38bdf8;
+  color: #0f172a;
+}
+
+.dark ::selection {
   background: #06b6d4;
   color: #090b10;
 }
 
 /* Accessibility Focus Rings */
 :focus-visible {
+  outline: 2px solid #0284c7;
+  outline-offset: 2px;
+}
+
+.dark :focus-visible {
   outline: 2px solid #06b6d4;
   outline-offset: 2px;
 }
