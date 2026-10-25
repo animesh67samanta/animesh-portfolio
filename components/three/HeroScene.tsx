@@ -55,8 +55,8 @@ export function HeroScene({ fallbackImage = "/images/hero-3d-bg.png" }: HeroScen
     if (!container) return;
 
     // Three.js setup
-    const width = container.clientWidth;
-    const height = container.clientHeight;
+    const width = container.clientWidth || 400;
+    const height = container.clientHeight || 400;
 
     const scene = new THREE.Scene();
     scene.fog = new THREE.FogExp2(0x090b10, 0.045);
@@ -79,6 +79,9 @@ export function HeroScene({ fallbackImage = "/images/hero-3d-bg.png" }: HeroScen
     renderer.setSize(width, height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setClearColor(0x000000, 0);
+
+    // Clean any previous canvas (e.g. from React Strict Mode in development)
+    container.innerHTML = "";
     container.appendChild(renderer.domElement);
 
     // Group for mouse parallax rotation
@@ -201,8 +204,8 @@ export function HeroScene({ fallbackImage = "/images/hero-3d-bg.png" }: HeroScen
     // Window resize handler
     const handleResize = () => {
       if (!container) return;
-      const newWidth = container.clientWidth;
-      const newHeight = container.clientHeight;
+      const newWidth = container.clientWidth || 400;
+      const newHeight = container.clientHeight || 400;
       camera.aspect = newWidth / newHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(newWidth, newHeight);
@@ -276,6 +279,9 @@ export function HeroScene({ fallbackImage = "/images/hero-3d-bg.png" }: HeroScen
       particleGeo.dispose();
       particleMat.dispose();
       renderer.dispose();
+      if (container && renderer.domElement && container.contains(renderer.domElement)) {
+        container.removeChild(renderer.domElement);
+      }
     };
   }, [prefersReducedMotion, webglSupported]);
 
