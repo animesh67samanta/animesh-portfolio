@@ -3,7 +3,7 @@
 import React from "react";
 import { FiArrowUp } from "react-icons/fi";
 import { SiGithub } from "react-icons/si";
-import { FaLinkedin } from "react-icons/fa6";
+import { FaLinkedin, FaFacebook } from "react-icons/fa6";
 import { portfolioData } from "@/data/portfolioData";
 
 export function Footer() {
@@ -46,6 +46,15 @@ export function Footer() {
             aria-label="LinkedIn Profile"
           >
             <FaLinkedin className="w-4 h-4" />
+          </a>
+          <a
+            href={portfolioData.personal.socialLinks.facebook}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
+            aria-label="Facebook Profile"
+          >
+            <FaFacebook className="w-4 h-4" />
           </a>
 
           <button

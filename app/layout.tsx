@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     "Kolkata",
     "Remote Developer"
   ],
-  authors: [{ name: "Animesh Samanta", url: "https://github.com/animeshsamanta" }],
+  authors: [{ name: "Animesh Samanta", url: "https://github.com/animesh67samanta" }],
   creator: "Animesh Samanta",
   openGraph: {
     title: "Animesh Samanta | Laravel Developer",

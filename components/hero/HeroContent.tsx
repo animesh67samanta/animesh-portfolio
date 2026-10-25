@@ -3,7 +3,7 @@
 import React from "react";
 import { FiArrowRight, FiDownload, FiMail } from "react-icons/fi";
 import { SiGithub } from "react-icons/si";
-import { FaLinkedin } from "react-icons/fa6";
+import { FaLinkedin, FaFacebook } from "react-icons/fa6";
 import { portfolioData } from "@/data/portfolioData";
 import { TextReveal } from "@/components/animations/TextReveal";
 import { FadeIn } from "@/components/animations/FadeIn";
@@ -116,6 +116,15 @@ export function HeroContent() {
               aria-label="LinkedIn Profile"
             >
               <FaLinkedin className="w-4 h-4" />
+            </a>
+            <a
+              href={portfolioData.personal.socialLinks.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:border-cyan-500/40 transition-colors shadow-sm"
+              aria-label="Facebook Profile"
+            >
+              <FaFacebook className="w-4 h-4" />
             </a>
             <a
               href={portfolioData.personal.socialLinks.email}

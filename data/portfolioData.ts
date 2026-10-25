@@ -86,8 +86,9 @@ export const portfolioData = {
     resumePdf: "/resume/animesh-samanta-resume.pdf",
     availability: "Available for Full-time & Remote Roles",
     socialLinks: {
-      github: "https://github.com/animeshsamanta",
-      linkedin: "https://www.linkedin.com/in/animesh-samanta",
+      github: process.env.NEXT_PUBLIC_GITHUB_URL || "https://github.com/animesh67samanta",
+      linkedin: process.env.NEXT_PUBLIC_LINKEDIN_URL || "https://linkedin.com/in/animesh-samanta-296b24211",
+      facebook: process.env.NEXT_PUBLIC_FACEBOOK_URL || "https://www.facebook.com/animesh67samanta",
       email: "mailto:animesh67samanta@gmail.com",
       phone: "tel:+919126577584"
     }
@@ -342,8 +343,8 @@ export const portfolioData = {
       technologies: ["Laravel 12", "MySQL", "Sanctum", "REST API", "Hostinger hPanel", "CRON Jobs", "DOMPDF", "OTP Auth"],
       metrics: "Real-time doctor appointment & lab booking with encrypted medical record vault",
       image: "/images/projects/local-doctors.png",
-      githubUrl: "https://github.com/animeshsamanta",
-      liveUrl: "https://github.com/animeshsamanta",
+      githubUrl: "https://github.com/animesh67samanta",
+      liveUrl: "https://github.com/animesh67samanta",
       featured: true,
       architectureDetails: {
         overview:
@@ -377,8 +378,8 @@ export const portfolioData = {
       technologies: ["Laravel", "Blade", "MySQL", "Razorpay", "Softzix SMS", "CRON Jobs", "DOMPDF", "Maatwebsite Excel"],
       metrics: "65%+ manual time reduction; 3-4 day turnaround cut to under 10 minutes",
       image: "/images/projects/smartgram-property.png",
-      githubUrl: "https://github.com/animeshsamanta",
-      liveUrl: "https://github.com/animeshsamanta",
+      githubUrl: "https://github.com/animesh67samanta",
+      liveUrl: "https://github.com/animesh67samanta",
       featured: true,
       architectureDetails: {
         overview:
@@ -412,8 +413,8 @@ export const portfolioData = {
       technologies: ["Laravel 12", "MySQL", "Spatie Permission", "RESTful API", "Laravel Queues", "Hostinger hPanel", "Bulk Excel"],
       metrics: "Asynchronous processing of thousands of connection records via Redis/database queues",
       image: "/images/projects/smartgram-water.png",
-      githubUrl: "https://github.com/animeshsamanta",
-      liveUrl: "https://github.com/animeshsamanta",
+      githubUrl: "https://github.com/animesh67samanta",
+      liveUrl: "https://github.com/animesh67samanta",
       featured: true,
       architectureDetails: {
         overview:
@@ -447,8 +448,8 @@ export const portfolioData = {
       technologies: ["Laravel", "MySQL", "REST API", "Postman", "Query Tuning", "Token Auth", "Redis"],
       metrics: "40% reduction in API response times through SQL indexing and query restructuring",
       image: "/images/projects/earning-handle.png",
-      githubUrl: "https://github.com/animeshsamanta",
-      liveUrl: "https://github.com/animeshsamanta",
+      githubUrl: "https://github.com/animesh67samanta",
+      liveUrl: "https://github.com/animesh67samanta",
       featured: true,
       architectureDetails: {
         overview:
@@ -481,8 +482,8 @@ export const portfolioData = {
       technologies: ["PHP", "MVC Architecture", "FFmpeg / Transcoder", "Maps API", "MySQL", "JavaScript", "Bootstrap"],
       metrics: "Automated batch conversion of legacy civic video repositories to mobile-ready MP4",
       image: "/images/projects/mumbai-votes.png",
-      githubUrl: "https://github.com/animeshsamanta",
-      liveUrl: "https://github.com/animeshsamanta",
+      githubUrl: "https://github.com/animesh67samanta",
+      liveUrl: "https://github.com/animesh67samanta",
       featured: false,
       architectureDetails: {
         overview:
@@ -515,8 +516,8 @@ export const portfolioData = {
       technologies: ["Laravel", "MySQL", "Blue-dart API", "Bulk CSV/Excel", "AJAX", "CRON Jobs", "Plesk", "Jira", "Bitbucket"],
       metrics: "Zero-downtime inventory reconciliations and automated courier status updates",
       image: "/images/projects/manyavar.png",
-      githubUrl: "https://github.com/animeshsamanta",
-      liveUrl: "https://github.com/animeshsamanta",
+      githubUrl: "https://github.com/animesh67samanta",
+      liveUrl: "https://github.com/animesh67samanta",
       featured: false,
       architectureDetails: {
         overview:

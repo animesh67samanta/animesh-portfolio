@@ -2,7 +2,7 @@
 
 import React, { Suspense, useRef, useSyncExternalStore } from "react";
 import * as THREE from "three";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import Image from "next/image";
 import { Earth } from "./Earth";
@@ -71,6 +71,61 @@ function RotatingGlobeGroup({ prefersReducedMotion }: { prefersReducedMotion: bo
   );
 }
 
+/**
+ * Automatically adjusts perspective camera distance on mobile screens
+ */
+function ResponsiveCamera() {
+  const { camera, size } = useThree();
+
+  React.useEffect(() => {
+    if (camera instanceof THREE.PerspectiveCamera) {
+      if (size.width < 640) {
+        camera.position.set(0, 0.25, 5.8);
+        camera.updateProjectionMatrix();
+      } else {
+        camera.position.set(0, 0.4, 5.2);
+        camera.updateProjectionMatrix();
+      }
+    }
+  }, [camera, size.width]);
+
+  return null;
+}
+
+/**
+ * Responsive wrapper scaling the Earth and atmospheric assembly:
+ * - Mobile (< 640px): 0.55x (clean, small size, never clips)
+ * - Tablet (640px - 1024px): 0.8x
+ * - Desktop (>= 1024px): 1.0x
+ */
+function ResponsiveGlobeAssembly({ prefersReducedMotion }: { prefersReducedMotion: boolean }) {
+  const { size } = useThree();
+  const isMobile = size.width < 640;
+  const isTablet = size.width >= 640 && size.width < 1024;
+
+  const scale = isMobile ? 0.55 : isTablet ? 0.8 : 1.0;
+  const posY = isMobile ? -0.1 : 0;
+
+  return (
+    <group scale={scale} position={[0, posY, 0]}>
+      {/* Central Rotating Globe Assembly */}
+      <RotatingGlobeGroup prefersReducedMotion={prefersReducedMotion} />
+
+      {/* Atmospheric Fresnel Rim Glow */}
+      <GlobeAtmosphere radius={GLOBE_RADIUS} />
+
+      {/* Orbital Rings with Satellites */}
+      <GlobeRings radius={GLOBE_RADIUS} />
+
+      {/* Floating Stars & Ambient Cybernetic Dust */}
+      <GlobeParticles count={isMobile ? 180 : 340} />
+
+      {/* Floating Glassmorphic 3D Badges */}
+      <GlobeBadges />
+    </group>
+  );
+}
+
 function GlobeFallback() {
   return (
     <div className="w-full h-full flex flex-col items-center justify-center bg-transparent">
@@ -125,6 +180,9 @@ export function GlobeScene({
           }}
           className="cursor-grab active:cursor-grabbing"
         >
+          {/* Responsive Camera Projection */}
+          <ResponsiveCamera />
+
           {/* Lighting Environment */}
           <ambientLight intensity={isDark ? 0.65 : 0.9} />
           
@@ -149,20 +207,8 @@ export function GlobeScene({
             color={isDark ? "#818cf8" : "#6366f1"}
           />
 
-          {/* Central Rotating Globe Assembly */}
-          <RotatingGlobeGroup prefersReducedMotion={prefersReducedMotion} />
-
-          {/* Atmospheric Fresnel Rim Glow */}
-          <GlobeAtmosphere radius={GLOBE_RADIUS} />
-
-          {/* Orbital Rings with Satellites */}
-          <GlobeRings radius={GLOBE_RADIUS} />
-
-          {/* Floating Stars & Ambient Cybernetic Dust */}
-          <GlobeParticles count={340} />
-
-          {/* Floating Glassmorphic 3D Badges */}
-          <GlobeBadges />
+          {/* Responsive Scaled Earth Assembly (Small size on mobile) */}
+          <ResponsiveGlobeAssembly prefersReducedMotion={prefersReducedMotion} />
 
           {/* Camera Interaction with Smooth Inertia */}
           <OrbitControls

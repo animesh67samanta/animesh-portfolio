@@ -11,7 +11,7 @@ import {
   FiLoader
 } from "react-icons/fi";
 import { SiGithub } from "react-icons/si";
-import { FaLinkedin } from "react-icons/fa6";
+import { FaLinkedin, FaFacebook } from "react-icons/fa6";
 import { portfolioData } from "@/data/portfolioData";
 import { sendContactEmail, validateContactForm, ContactFormData } from "@/lib/emailjs";
 import { FadeIn } from "@/components/animations/FadeIn";
@@ -192,6 +192,15 @@ export function Contact() {
                   aria-label="LinkedIn Profile"
                 >
                   <FaLinkedin className="w-4 h-4" />
+                </a>
+                <a
+                  href={portfolioData.personal.socialLinks.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-cyan-50 dark:hover:bg-cyan-500/20 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
+                  aria-label="Facebook Profile"
+                >
+                  <FaFacebook className="w-4 h-4" />
                 </a>
               </div>
             </div>
