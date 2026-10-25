@@ -65,7 +65,7 @@ export const portfolioData = {
   personal: {
     name: "Animesh Samanta",
     greeting: "Hello, I'm",
-    role: "Laravel Backend Developer | PHP Developer",
+    role: "Laravel Developer | PHP Developer",
     secondaryRoles: [
       "Laravel 12 & Clean Architecture",
       "High-Performance REST APIs",
@@ -74,7 +74,7 @@ export const portfolioData = {
       "Spatie RBAC & Payment Gateways"
     ],
     shortBio:
-      "Laravel Backend Developer with 3+ years of experience architecting resilient web applications, RESTful APIs, ERP modules, tax automation platforms, and queue processing systems. Dedicated to clean code, robust database design, and high-throughput workflows.",
+      "Laravel Developer with 3+ years of experience architecting resilient web applications, RESTful APIs, ERP modules, tax automation platforms, and queue processing systems. Dedicated to clean code, robust database design, and high-throughput workflows.",
     fullBio:
       "I specialize in Laravel and modern PHP ecosystem engineering, bridging complex business requirements with bulletproof backend architectures. Over the past 3+ years, I have architected mission-critical municipal tax platforms that slashed manual processing by 65%, optimized database queries by 40%, built healthcare appointment systems with real-time slot locking, and integrated secure payment gateways and AI endpoints.",
     location: "Kolkata, India",

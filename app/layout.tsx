@@ -26,9 +26,9 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://animeshsamanta.dev"),
-  title: "Animesh Samanta | Laravel Backend Developer",
+  title: "Animesh Samanta | Laravel Developer",
   description:
-    "Production portfolio of Animesh Samanta, a Laravel Backend Developer with 3+ years of experience architecting high-performance REST APIs, municipal tax automation platforms, database query optimization, and queue processing systems.",
+    "Production portfolio of Animesh Samanta, a Laravel Developer with 3+ years of experience architecting high-performance REST APIs, municipal tax automation platforms, database query optimization, and queue processing systems.",
   keywords: [
     "Animesh Samanta",
     "Laravel Developer",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Animesh Samanta", url: "https://github.com/animeshsamanta" }],
   creator: "Animesh Samanta",
   openGraph: {
-    title: "Animesh Samanta | Laravel Backend Developer",
+    title: "Animesh Samanta | Laravel Developer",
     description:
       "Explore the production systems, verified experience, and architecture blueprints by Animesh Samanta.",
     type: "website",

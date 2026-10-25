@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import {
   FiHome,
   FiUser,
@@ -87,15 +88,22 @@ export function Navbar() {
             className="flex items-center gap-3 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-lg p-1 group"
             aria-label="Animesh Samanta Portfolio Home"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-indigo-600 flex items-center justify-center font-bold text-white shadow-lg shadow-cyan-500/20 text-lg border border-white/10 group-hover:scale-105 transition-transform">
-              AS
+            <div className="w-10 h-10 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 shadow-lg shadow-cyan-500/10 flex items-center justify-center p-1 group-hover:scale-105 transition-transform overflow-hidden relative shrink-0">
+              <Image
+                src="/icon.png"
+                alt="Animesh Samanta Logo"
+                width={36}
+                height={36}
+                priority
+                className="w-full h-full object-contain"
+              />
             </div>
             <div>
               <span className="block font-bold text-slate-900 dark:text-white text-base tracking-tight">
                 Animesh Samanta
               </span>
               <span className="block text-xs text-cyan-600 dark:text-cyan-400 font-semibold">
-                Laravel Backend Developer
+                Laravel Developer
               </span>
             </div>
           </button>
@@ -181,13 +189,24 @@ export function Navbar() {
         >
           <div className="pt-16">
             <div className="mb-6 pb-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
-              <div>
-                <span className="block font-bold text-slate-900 dark:text-white text-lg">
-                  Animesh Samanta
-                </span>
-                <span className="text-xs text-cyan-600 dark:text-cyan-400 font-medium">
-                  Laravel Backend Developer
-                </span>
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 shadow-md flex items-center justify-center p-1 overflow-hidden relative shrink-0">
+                  <Image
+                    src="/icon.png"
+                    alt="Animesh Samanta Logo"
+                    width={32}
+                    height={32}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <div>
+                  <span className="block font-bold text-slate-900 dark:text-white text-base">
+                    Animesh Samanta
+                  </span>
+                  <span className="text-xs text-cyan-600 dark:text-cyan-400 font-medium">
+                    Laravel Developer
+                  </span>
+                </div>
               </div>
             </div>
 

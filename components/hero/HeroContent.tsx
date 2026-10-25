@@ -40,7 +40,7 @@ export function HeroContent() {
         <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.12]">
           Animesh Samanta
           <span className="block text-2xl sm:text-3xl font-semibold text-slate-700 dark:text-slate-200 mt-2">
-            Laravel Backend Developer
+            Laravel Developer
           </span>
           <span className="block text-lg sm:text-2xl font-normal text-slate-500 dark:text-slate-400 mt-1">
             Specialized as{" "}

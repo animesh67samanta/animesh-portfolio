@@ -2,7 +2,7 @@
 
 A production-ready, high-performance developer portfolio website engineered with Next.js (App Router), TypeScript, Tailwind CSS, Framer Motion, Three.js, and EmailJS. Inspired by the dark, refined, and minimalist aesthetic of the CVio Resume/CV template.
 
-Built for **Animesh Samanta**, Laravel Backend Developer & PHP Developer with 3+ years of experience architecting municipal tax automation platforms, high-throughput REST APIs, and healthcare scheduling systems.
+Built for **Animesh Samanta**, Laravel Developer & PHP Developer with 3+ years of experience architecting municipal tax automation platforms, high-throughput REST APIs, and healthcare scheduling systems.
 
 ---
 
