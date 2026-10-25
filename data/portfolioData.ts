@@ -536,8 +536,8 @@ export const portfolioData = {
   ],
 
   emailJsConfig: {
-    serviceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_default",
-    templateId: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_default",
-    publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "YOUR_PUBLIC_KEY"
+    serviceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_lz916ok",
+    templateId: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_s0qct88",
+    publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "FO50ce2ZmWgQGlQmx"
   }
 };

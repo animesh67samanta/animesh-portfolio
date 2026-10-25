@@ -56,9 +56,12 @@ export async function sendContactEmail(formData: ContactFormData): Promise<SendE
     return { success: false, message: "Spam submission rejected." };
   }
 
-  const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-  const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-  const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+  const serviceId =
+    process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_lz916ok";
+  const templateId =
+    process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_s0qct88";
+  const publicKey =
+    process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "FO50ce2ZmWgQGlQmx";
 
   // Check if real EmailJS credentials are provided
   const isConfigured =
@@ -86,7 +89,10 @@ export async function sendContactEmail(formData: ContactFormData): Promise<SendE
   try {
     const templateParams = {
       from_name: formData.name.trim(),
+      name: formData.name.trim(),
       from_email: formData.email.trim(),
+      email: formData.email.trim(),
+      reply_to: formData.email.trim(),
       subject: formData.subject.trim(),
       message: formData.message.trim(),
       to_name: "Animesh Samanta"
