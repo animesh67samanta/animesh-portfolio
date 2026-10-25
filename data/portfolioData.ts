@@ -182,7 +182,7 @@ export const portfolioData = {
 
   skills: [
     // Backend
-    { name: "Laravel (v10 - v12)", category: "Backend", iconName: "SiLaravel", level: "Expert", description: "Architecture, Service Layer, Sanctum, Eloquent, Queues" },
+    { name: "Laravel (v8 - v13)", category: "Backend", iconName: "SiLaravel", level: "Expert", description: "Architecture, Service Layer, Sanctum, Eloquent, Queues" },
     { name: "PHP 8+", category: "Backend", iconName: "SiPhp", level: "Expert", description: "OOP, Attributes, Type Safety, Namespaces, Modern Syntax" },
     { name: "RESTful APIs", category: "Backend", iconName: "TbApi", level: "Expert", description: "API Resources, Rate Limiting, Sanctum Tokens, JSON Specs" },
     { name: "Queues & Jobs", category: "Backend", iconName: "LuWorkflow", level: "Expert", description: "Async workers, event dispatching, failed job monitoring" },
