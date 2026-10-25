@@ -25,7 +25,7 @@ export function GlobeParticles({ count = 380 }: GlobeParticlesProps) {
     const pos = new Float32Array(count * 3);
     const col = new Float32Array(count * 3);
 
-    const cyan = new THREE.Color(isDark ? "#22d3ee" : "#0284c7");
+    const cyan = new THREE.Color(isDark ? "#38bdf8" : "#0ea5e9");
     const violet = new THREE.Color(isDark ? "#818cf8" : "#6366f1");
     const white = new THREE.Color(isDark ? "#f8fafc" : "#0f172a");
 

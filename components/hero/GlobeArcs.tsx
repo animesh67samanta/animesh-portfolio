@@ -19,7 +19,7 @@ interface ArcRenderData {
   offset: number;
 }
 
-export function GlobeArcs({ radius = 2.0 }: GlobeArcsProps) {
+export function GlobeArcs({ radius = 1.8 }: GlobeArcsProps) {
   const { theme } = useTheme();
   const isDark = theme === "dark";
 

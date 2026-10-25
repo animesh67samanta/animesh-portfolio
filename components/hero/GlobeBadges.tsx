@@ -22,13 +22,13 @@ export function GlobeBadges() {
           <div
             className={`px-3 py-1.5 rounded-full border shadow-lg backdrop-blur-md flex items-center gap-2 whitespace-nowrap transition-colors duration-200 ${
               isDark
-                ? "bg-[#0c101a]/85 border-cyan-500/30 text-white shadow-cyan-950/40"
+                ? "bg-[#0c101a]/85 border-sky-500/30 text-white shadow-sky-950/40"
                 : "bg-white/90 border-slate-200 text-slate-800 shadow-slate-300/40"
             }`}
           >
             <span
               className={`w-1.5 h-1.5 rounded-full animate-ping ${
-                isDark ? "bg-cyan-400" : "bg-sky-500"
+                isDark ? "bg-sky-400" : "bg-sky-500"
               }`}
             />
             <div className="flex flex-col">

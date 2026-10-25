@@ -9,7 +9,7 @@ interface GlobeRingsProps {
   radius?: number;
 }
 
-export function GlobeRings({ radius = 2.0 }: GlobeRingsProps) {
+export function GlobeRings({ radius = 1.8 }: GlobeRingsProps) {
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
@@ -18,8 +18,9 @@ export function GlobeRings({ radius = 2.0 }: GlobeRingsProps) {
   const sat1Ref = useRef<THREE.Mesh>(null);
   const sat2Ref = useRef<THREE.Mesh>(null);
 
-  const r1 = radius * 1.34; // ~ 2.68
-  const r2 = radius * 1.55; // ~ 3.10
+  // Compact, sleek orbital radii relative to small earth radius
+  const r1 = radius * 1.18;
+  const r2 = radius * 1.32;
 
   useFrame(({ clock }) => {
     const t = clock.getElapsedTime();
@@ -37,17 +38,17 @@ export function GlobeRings({ radius = 2.0 }: GlobeRingsProps) {
     }
   });
 
-  const cyanColor = isDark ? "#22d3ee" : "#0284c7";
+  const skyBlueColor = isDark ? "#38bdf8" : "#0284c7";
   const violetColor = isDark ? "#818cf8" : "#4f46e5";
 
   return (
     <group>
-      {/* Orbital Ring 1 (Tilted cyan ellipse) */}
+      {/* Orbital Ring 1 (Tilted sky-blue ellipse) */}
       <group ref={ring1Ref} rotation={[0.55, 0.2, 0.35]}>
         <mesh>
-          <torusGeometry args={[r1, 0.0045, 8, 120]} />
+          <torusGeometry args={[r1, 0.0035, 8, 120]} />
           <meshBasicMaterial
-            color={cyanColor}
+            color={skyBlueColor}
             transparent
             opacity={isDark ? 0.26 : 0.2}
             depthWrite={false}
@@ -56,15 +57,15 @@ export function GlobeRings({ radius = 2.0 }: GlobeRingsProps) {
 
         {/* Orbiting Satellite Node 1 */}
         <mesh ref={sat1Ref}>
-          <sphereGeometry args={[0.024, 12, 12]} />
-          <meshBasicMaterial color={isDark ? "#ffffff" : cyanColor} toneMapped={false} />
+          <sphereGeometry args={[0.02, 12, 12]} />
+          <meshBasicMaterial color={isDark ? "#ffffff" : skyBlueColor} toneMapped={false} />
         </mesh>
       </group>
 
       {/* Orbital Ring 2 (Counter-tilted violet ellipse) */}
       <group ref={ring2Ref} rotation={[-0.7, -0.3, -0.45]}>
         <mesh>
-          <torusGeometry args={[r2, 0.0035, 8, 120]} />
+          <torusGeometry args={[r2, 0.0028, 8, 120]} />
           <meshBasicMaterial
             color={violetColor}
             transparent
@@ -75,7 +76,7 @@ export function GlobeRings({ radius = 2.0 }: GlobeRingsProps) {
 
         {/* Orbiting Satellite Node 2 */}
         <mesh ref={sat2Ref}>
-          <sphereGeometry args={[0.02, 12, 12]} />
+          <sphereGeometry args={[0.016, 12, 12]} />
           <meshBasicMaterial color={isDark ? "#ffffff" : violetColor} toneMapped={false} />
         </mesh>
       </group>

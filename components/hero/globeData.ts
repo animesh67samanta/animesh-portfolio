@@ -1,7 +1,7 @@
 import { CityNode, NetworkArc, FloatingBadge } from "./types";
 import * as THREE from "three";
 
-export const GLOBE_RADIUS = 2.0;
+export const GLOBE_RADIUS = 1.8;
 
 export const GLOBAL_CITIES: CityNode[] = [
   { name: "Kolkata", country: "India", lat: 22.5726, lon: 88.3639, isPrimary: true },
@@ -20,17 +20,17 @@ export const GLOBAL_CITIES: CityNode[] = [
 
 export const NETWORK_ARCS: NetworkArc[] = [
   { from: "Kolkata", to: "Bengaluru", color: "#38bdf8", speed: 0.8 },
-  { from: "Bengaluru", to: "Singapore", color: "#06b6d4", speed: 0.6 },
+  { from: "Bengaluru", to: "Singapore", color: "#0ea5e9", speed: 0.6 },
   { from: "Kolkata", to: "Dubai", color: "#38bdf8", speed: 0.5 },
   { from: "Dubai", to: "London", color: "#6366f1", speed: 0.6 },
-  { from: "London", to: "Berlin", color: "#22d3ee", speed: 0.9 },
+  { from: "London", to: "Berlin", color: "#38bdf8", speed: 0.9 },
   { from: "London", to: "New York", color: "#38bdf8", speed: 0.55 },
-  { from: "New York", to: "Toronto", color: "#06b6d4", speed: 0.85 },
+  { from: "New York", to: "Toronto", color: "#0ea5e9", speed: 0.85 },
   { from: "New York", to: "San Francisco", color: "#818cf8", speed: 0.65 },
   { from: "San Francisco", to: "Tokyo", color: "#38bdf8", speed: 0.5 },
-  { from: "Tokyo", to: "Singapore", color: "#06b6d4", speed: 0.7 },
+  { from: "Tokyo", to: "Singapore", color: "#0ea5e9", speed: 0.7 },
   { from: "Singapore", to: "Sydney", color: "#6366f1", speed: 0.6 },
-  { from: "New York", to: "São Paulo", color: "#22d3ee", speed: 0.5 },
+  { from: "New York", to: "São Paulo", color: "#38bdf8", speed: 0.5 },
 ];
 
 export const FLOATING_BADGES: FloatingBadge[] = [
@@ -38,19 +38,19 @@ export const FLOATING_BADGES: FloatingBadge[] = [
     id: "badge-1",
     text: "CONNECTED GLOBALLY",
     subtext: "High-Availability Backend APIs",
-    position: [2.1, 1.8, 0.4],
+    position: [1.95, 1.6, 0.35],
   },
   {
     id: "badge-2",
     text: "DIGITAL NETWORK",
     subtext: "Distributed Cloud Architecture",
-    position: [-2.2, -1.4, 0.6],
+    position: [-2.0, -1.3, 0.5],
   },
   {
     id: "badge-3",
     text: "BUILDING THE WEB",
     subtext: "Modern Laravel & Next.js",
-    position: [2.3, -1.3, -0.4],
+    position: [2.05, -1.2, -0.35],
   },
 ];
 

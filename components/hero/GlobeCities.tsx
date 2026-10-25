@@ -18,7 +18,7 @@ interface CityRenderData {
   beaconHeight: number;
 }
 
-export function GlobeCities({ radius = 2.0 }: GlobeCitiesProps) {
+export function GlobeCities({ radius = 1.8 }: GlobeCitiesProps) {
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
@@ -60,7 +60,7 @@ export function GlobeCities({ radius = 2.0 }: GlobeCitiesProps) {
     });
   });
 
-  const primaryColor = isDark ? "#22d3ee" : "#0284c7";
+  const primaryColor = isDark ? "#38bdf8" : "#0284c7";
   const secondaryColor = isDark ? "#38bdf8" : "#0369a1";
 
   return (
