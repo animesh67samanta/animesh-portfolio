@@ -9,10 +9,11 @@ Built for **Animesh Samanta**, Laravel Developer & PHP Developer with 3+ years o
 ## 🌟 Key Features
 
 - **CVio-Inspired Architecture**: Features a desktop sticky profile card with verified contact details, glowing status indicators, and sleek active-section navigation.
-- **Interactive Three.js 3D Visual**: A dynamic isometric glass tesseract core with orbital glowing rings, star particles, and cursor-reactive parallax damping.
-- **Graceful Accessible Fallback**: Automatically falls back to high-resolution 3D visuals when WebGL is unavailable or when the user prefers reduced motion.
+- **Interactive 3D Digital Globe Hero**: A cinematic React Three Fiber 3D Earth visualization featuring high-res continent mapping, glowing global tech hubs, 3D great circle network arcs with animated photon pulses, atmospheric Fresnel rim shaders, cybernetic orbital rings, and orbiting satellites.
+- **Dual Dark & Light Theme System**: Complete theme toggle system with zero-FOUC state hydration, adaptive 3D lighting, and Tailwind CSS v4 design tokens.
+- **Graceful Accessible Fallback**: Automatically respects `prefers-reduced-motion` and provides high-res visuals when WebGL is unavailable.
 - **Framer Motion Micro-Animations**: Smooth section reveals, rotating hero specialty badges, modal popups, and button interactions.
-- **Verified Portfolio Data**: 100% authentic data extracted from Animesh Samanta's verified resume across experience, education, training, and 6 production projects.
+- **Verified Portfolio Data**: 100% authentic data extracted from Animesh Samanta's verified resume across experience, education, training, and production projects.
 - **System Architecture Blueprints**: Interactive project modal drawers displaying system architecture, database design insights, key modules, and security policies.
 - **EmailJS Contact Integration**: Client-side validated contact form with honeypot spam protection, real-time feedback, and zero custom server requirements.
 - **Static Site Export (`output: 'export'`)**: Fully exportable to plain HTML/CSS/JS for deployment on Vercel, Netlify, GitHub Pages, or Cloudflare Pages.
