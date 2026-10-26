@@ -1,11 +1,12 @@
 import type { NextConfig } from "next";
+import { withBotId } from "botid/next/config";
 
 const nextConfig: NextConfig = {
-  output: "export",
   images: {
     unoptimized: true,
   },
   devIndicators: false,
 };
 
-export default nextConfig;
+export default withBotId(nextConfig);
+

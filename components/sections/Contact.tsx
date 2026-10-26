@@ -58,31 +58,63 @@ export function Contact() {
     setIsSubmitting(true);
 
     try {
-      const response = await sendContactEmail(formData);
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const response = await res.json();
       if (response.success) {
         setStatusMessage({
           type: "success",
-          text: response.message
+          text: response.message,
         });
         setFormData({
           name: "",
           email: "",
           subject: "",
           message: "",
-          honeypot: ""
+          honeypot: "",
         });
         setFormErrors({});
       } else {
         setStatusMessage({
           type: "error",
-          text: response.message
+          text: response.message || "Failed to deliver message.",
         });
       }
     } catch {
-      setStatusMessage({
-        type: "error",
-        text: "An unexpected error occurred. Please reach out directly to animesh67samanta@gmail.com."
-      });
+      // Fallback to client-side direct dispatch if API route is unavailable
+      try {
+        const fallbackResponse = await sendContactEmail(formData);
+        if (fallbackResponse.success) {
+          setStatusMessage({
+            type: "success",
+            text: fallbackResponse.message,
+          });
+          setFormData({
+            name: "",
+            email: "",
+            subject: "",
+            message: "",
+            honeypot: "",
+          });
+          setFormErrors({});
+        } else {
+          setStatusMessage({
+            type: "error",
+            text: fallbackResponse.message,
+          });
+        }
+      } catch {
+        setStatusMessage({
+          type: "error",
+          text: "An unexpected error occurred. Please reach out directly to animesh67samanta@gmail.com.",
+        });
+      }
     } finally {
       setIsSubmitting(false);
     }

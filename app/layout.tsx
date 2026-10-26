@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { BotIdClient } from "botid/client";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -77,6 +78,13 @@ const themeInitScript = `
   } catch (e) {}
 `;
 
+const protectedRoutes = [
+  {
+    path: "/api/contact",
+    method: "POST",
+  },
+];
+
 export default function RootLayout({
   children,
 }: {
@@ -90,6 +98,7 @@ export default function RootLayout({
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <BotIdClient protect={protectedRoutes} />
       </head>
       <body className="bg-[#f8fafc] text-slate-900 dark:bg-[#090b10] dark:text-[#f8fafc] min-h-screen flex flex-col antialiased selection:bg-cyan-400 selection:text-slate-950 transition-colors duration-250">
         <ThemeProvider>
@@ -101,3 +110,4 @@ export default function RootLayout({
     </html>
   );
 }
+
