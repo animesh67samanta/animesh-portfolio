@@ -26,6 +26,58 @@ const filterCategories: CategoryFilter[] = [
   "Media & Tools"
 ];
 
+interface ProjectCardImageProps {
+  project: Project;
+  onOpenModal: () => void;
+}
+
+function ProjectCardImage({ project, onOpenModal }: ProjectCardImageProps) {
+  const [imageError, setImageError] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  return (
+    <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-900 border-b border-slate-200 dark:border-slate-800/80">
+      {imageError || !project.image ? (
+        <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-slate-900 via-slate-950 to-cyan-950/40 p-6 text-center select-none">
+          <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-2">
+            <FiLayers className="w-6 h-6" />
+          </div>
+          <p className="text-xs font-semibold text-slate-200 line-clamp-1">{project.title}</p>
+          <span className="text-[11px] text-cyan-400/80 mt-0.5">{project.category}</span>
+        </div>
+      ) : (
+        <Image
+          src={project.image}
+          alt={`${project.title} — ${project.subtitle} | Animesh Samanta Portfolio`}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+          className={`object-cover ${project.imagePosition || "object-center"} group-hover:scale-[1.03] transition-transform duration-500 ${isLoaded ? "opacity-100" : "opacity-90"}`}
+          onLoad={() => setIsLoaded(true)}
+          onError={() => setImageError(true)}
+        />
+      )}
+      <div className="absolute inset-0 bg-gradient-to-t from-white/90 dark:from-[#111520] via-transparent to-transparent opacity-60 pointer-events-none" />
+
+      {/* Category Pill */}
+      <div className="absolute top-4 left-4 pointer-events-none">
+        <span className="px-3 py-1 rounded-full bg-white/90 dark:bg-slate-950/80 backdrop-blur-md border border-slate-200 dark:border-slate-700/60 text-[11px] font-semibold text-cyan-700 dark:text-cyan-400 shadow-md">
+          {project.category}
+        </span>
+      </div>
+
+      {/* Architecture Inspect Button */}
+      <button
+        onClick={onOpenModal}
+        className="absolute bottom-3 right-3 px-3 py-1.5 rounded-xl bg-white/90 dark:bg-slate-900/90 hover:bg-cyan-500 hover:text-slate-950 dark:hover:bg-cyan-500 dark:hover:text-slate-950 border border-slate-200 dark:border-slate-700/60 text-slate-800 dark:text-slate-200 text-xs font-medium backdrop-blur-md transition-all flex items-center gap-1.5 shadow-lg z-10"
+        aria-label={`View architecture details for ${project.title}`}
+      >
+        <FiInfo className="w-3.5 h-3.5" />
+        <span>Architecture</span>
+      </button>
+    </div>
+  );
+}
+
 export function Projects() {
   const [selectedCategory, setSelectedCategory] = useState<CategoryFilter>("All");
   const [activeModalProject, setActiveModalProject] = useState<Project | null>(null);
@@ -80,35 +132,11 @@ export function Projects() {
         {filteredProjects.map((project, idx) => (
           <FadeIn key={project.id} direction="up" delay={0.1 * (idx % 4)}>
             <div className="bg-white dark:bg-[#111520] hover:bg-slate-50 dark:hover:bg-[#141926] border border-slate-200 dark:border-slate-800/90 hover:border-cyan-400 dark:hover:border-cyan-500/40 rounded-3xl overflow-hidden shadow-md shadow-slate-200/50 dark:shadow-xl dark:shadow-black/40 transition-all duration-300 flex flex-col justify-between group h-full">
-              {/* Project Image Banner */}
-              <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-900 border-b border-slate-200 dark:border-slate-800/80">
-                <Image
-                  src={project.image}
-                  alt={`${project.title} — ${project.subtitle} | Animesh Samanta Portfolio`}
-                  fill
-                  className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-white/90 dark:from-[#111520] via-transparent to-transparent opacity-60" />
-
-                {/* Category Pill */}
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 rounded-full bg-white/90 dark:bg-slate-950/80 backdrop-blur-md border border-slate-200 dark:border-slate-700/60 text-[11px] font-semibold text-cyan-700 dark:text-cyan-400 shadow-md">
-                    {project.category}
-                  </span>
-                </div>
-
-                {/* Architecture Inspect Button */}
-                <button
-                  onClick={() => setActiveModalProject(project)}
-                  className="absolute bottom-3 right-3 px-3 py-1.5 rounded-xl bg-white/90 dark:bg-slate-900/90 hover:bg-cyan-500 hover:text-slate-950 dark:hover:bg-cyan-500 dark:hover:text-slate-950 border border-slate-200 dark:border-slate-700/60 text-slate-800 dark:text-slate-200 text-xs font-medium backdrop-blur-md transition-all flex items-center gap-1.5 shadow-lg"
-                  aria-label={`View architecture details for ${project.title}`}
-                >
-                  <FiInfo className="w-3.5 h-3.5" />
-                  <span>Architecture</span>
-                </button>
-              </div>
-
-              {/* Card Body */}
+              {/* Project Image Banner with Fallback */}
+              <ProjectCardImage
+                project={project}
+                onOpenModal={() => setActiveModalProject(project)}
+              />
               <div className="p-6 flex-1 flex flex-col justify-between">
                 <div>
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white tracking-tight group-hover:text-cyan-600 dark:group-hover:text-cyan-300 transition-colors">
