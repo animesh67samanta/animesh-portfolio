@@ -84,7 +84,7 @@ export function Projects() {
               <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-900 border-b border-slate-200 dark:border-slate-800/80">
                 <Image
                   src={project.image}
-                  alt={project.title}
+                  alt={`${project.title} — ${project.subtitle} | Animesh Samanta Portfolio`}
                   fill
                   className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
                 />

@@ -40,7 +40,7 @@ export function HeroContent() {
         <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.12]">
           Animesh Samanta
           <span className="block text-2xl sm:text-3xl font-semibold text-slate-700 dark:text-slate-200 mt-2">
-            Laravel Developer
+            Laravel &amp; PHP Developer
           </span>
           <span className="block text-lg sm:text-2xl font-normal text-slate-500 dark:text-slate-400 mt-1">
             Specialized as{" "}
@@ -79,13 +79,17 @@ export function HeroContent() {
       <FadeIn direction="up" delay={0.4}>
         <div className="flex flex-wrap items-center gap-3 pt-2">
           {/* Explore My Work CTA */}
-          <button
-            onClick={scrollToProjects}
+          <a
+            href="#projects"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToProjects();
+            }}
             className="flex items-center gap-2 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-950 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 transition-all duration-200 shadow-lg shadow-cyan-500/20 group"
           >
             <span>Explore My Work</span>
             <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
-          </button>
+          </a>
 
           {/* Download Resume Button */}
           <a

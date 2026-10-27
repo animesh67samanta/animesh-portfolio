@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { BotIdClient } from "botid/client";
+import { JsonLd } from "@/components/JsonLd";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,43 +28,82 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+const baseUrl = "https://animeshsamanta.is-a.dev";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://animeshsamanta.dev"),
-  title: "Animesh Samanta | Laravel Developer",
+  metadataBase: new URL(baseUrl),
+  title: {
+    default: "Animesh Samanta | Laravel & PHP Developer",
+    template: "%s | Animesh Samanta",
+  },
   description:
-    "Production portfolio of Animesh Samanta, a Laravel Developer with 3+ years of experience architecting high-performance REST APIs, municipal tax automation platforms, database query optimization, and queue processing systems.",
+    "Official portfolio of Animesh Samanta, a Laravel and PHP Developer with 3+ years of experience architecting high-performance REST APIs, municipal tax automation platforms, database query optimization, and queue processing systems. Author of DevGit CLI.",
   keywords: [
     "Animesh Samanta",
+    "Animesh Samanta Laravel Developer",
+    "Animesh Samanta PHP Developer",
     "Laravel Developer",
-    "Backend Developer",
     "PHP Developer",
+    "Backend Developer",
     "REST API",
     "MySQL",
     "Redis",
     "Clean Architecture",
+    "DevGit CLI",
+    "Full-Stack Developer",
     "Kolkata",
-    "Remote Developer"
+    "Remote Developer",
   ],
-  authors: [{ name: "Animesh Samanta", url: "https://github.com/animesh67samanta" }],
+  authors: [{ name: "Animesh Samanta", url: baseUrl }],
   creator: "Animesh Samanta",
+  publisher: "Animesh Samanta",
+  alternates: {
+    canonical: baseUrl,
+  },
   openGraph: {
-    title: "Animesh Samanta | Laravel Developer",
+    title: "Animesh Samanta | Laravel & PHP Developer",
     description:
-      "Explore the production systems, verified experience, and architecture blueprints by Animesh Samanta.",
-    type: "website",
+      "Explore production systems, verified experience, and architecture blueprints by Animesh Samanta.",
+    url: baseUrl,
+    siteName: "Animesh Samanta Portfolio",
     locale: "en_US",
+    type: "profile",
     images: [
       {
-        url: "/images/hero-3d-bg.png",
+        url: "/images/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Animesh Samanta - Laravel Developer Portfolio"
-      }
-    ]
+        alt: "Animesh Samanta — Laravel and PHP Developer Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Animesh Samanta | Laravel & PHP Developer",
+    description:
+      "Explore production systems, verified experience, and architecture blueprints by Animesh Samanta.",
+    images: ["/images/og-image.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   icons: {
-    icon: "/favicon.ico"
-  }
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    apple: [
+      { url: "/icon.png", type: "image/png" },
+    ],
+  },
 };
 
 const themeInitScript = `
@@ -98,6 +138,7 @@ export default function RootLayout({
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <JsonLd />
         <BotIdClient protect={protectedRoutes} />
       </head>
       <body className="bg-[#f8fafc] text-slate-900 dark:bg-[#090b10] dark:text-[#f8fafc] min-h-screen flex flex-col antialiased selection:bg-cyan-400 selection:text-slate-950 transition-colors duration-250">

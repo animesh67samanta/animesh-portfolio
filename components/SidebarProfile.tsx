@@ -33,7 +33,7 @@ export function SidebarProfile() {
             <div className="w-full h-full rounded-full overflow-hidden bg-slate-100 dark:bg-slate-900 relative">
               <Image
                 src={portfolioData.personal.avatar}
-                alt={portfolioData.personal.name}
+                alt="Animesh Samanta - Laravel and PHP Developer"
                 fill
                 className="object-cover"
                 priority
@@ -48,9 +48,9 @@ export function SidebarProfile() {
 
         {/* Name and Title */}
         <div className="text-center mb-5">
-          <h2 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">
+          <p className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">
             {portfolioData.personal.name}
-          </h2>
+          </p>
           <p className="text-xs font-semibold text-cyan-600 dark:text-cyan-400 mt-1 uppercase tracking-wider">
             {portfolioData.personal.role}
           </p>
@@ -170,14 +170,18 @@ export function SidebarProfile() {
             <span>Download Resume (PDF)</span>
           </a>
 
-          <button
-            onClick={scrollToContact}
-            className="relative group w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-xs font-bold text-slate-950 bg-gradient-to-r from-cyan-400 via-sky-400 to-indigo-400 hover:from-cyan-300 hover:to-indigo-300 transition-all shadow-md shadow-cyan-500/20 hover:shadow-lg hover:shadow-cyan-400/35 overflow-hidden border border-cyan-300/40"
+          <a
+            href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToContact();
+            }}
+            className="relative group w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-xs font-bold text-slate-950 bg-gradient-to-r from-cyan-400 via-sky-400 to-indigo-400 hover:from-cyan-300 hover:to-indigo-300 transition-all shadow-md shadow-cyan-500/20 hover:shadow-lg hover:shadow-cyan-400/35 overflow-hidden border border-cyan-300/40 text-center"
           >
             <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none" />
             <FiSend className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             <span>Contact Me</span>
-          </button>
+          </a>
         </div>
       </div>
     </aside>

@@ -91,7 +91,7 @@ export function Navbar() {
             <div className="w-10 h-10 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 shadow-lg shadow-cyan-500/10 flex items-center justify-center p-1 group-hover:scale-105 transition-transform overflow-hidden relative shrink-0">
               <Image
                 src="/icon.png"
-                alt="Animesh Samanta Logo"
+                alt="Animesh Samanta - Laravel Developer Monogram Logo"
                 width={36}
                 height={36}
                 priority
@@ -109,14 +109,18 @@ export function Navbar() {
           </button>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1 bg-white/80 dark:bg-[#121622]/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-800/80 shadow-sm dark:shadow-inner dark:shadow-black/30">
+          <nav aria-label="Main Navigation" className="hidden lg:flex items-center gap-1 bg-white/80 dark:bg-[#121622]/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-800/80 shadow-sm dark:shadow-inner dark:shadow-black/30">
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = activeSection === item.id;
               return (
-                <button
+                <a
                   key={item.id}
-                  onClick={() => scrollToSection(item.id)}
+                  href={`#${item.id}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(item.id);
+                  }}
                   className={`flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
                     isActive
                       ? "bg-cyan-500 text-slate-950 font-semibold shadow-md shadow-cyan-500/30"
@@ -126,7 +130,7 @@ export function Navbar() {
                 >
                   <Icon className="text-sm" />
                   <span>{item.label}</span>
-                </button>
+                </a>
               );
             })}
           </nav>
@@ -186,7 +190,7 @@ export function Navbar() {
                 <div className="w-9 h-9 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 shadow-md flex items-center justify-center p-1 overflow-hidden relative shrink-0">
                   <Image
                     src="/icon.png"
-                    alt="Animesh Samanta Logo"
+                    alt="Animesh Samanta - Laravel Developer Monogram Logo"
                     width={32}
                     height={32}
                     className="w-full h-full object-contain"
@@ -203,14 +207,18 @@ export function Navbar() {
               </div>
             </div>
 
-            <nav className="flex flex-col gap-1.5">
+            <nav aria-label="Mobile Navigation" className="flex flex-col gap-1.5">
               {navItems.map((item) => {
                 const Icon = item.icon;
                 const isActive = activeSection === item.id;
                 return (
-                  <button
+                  <a
                     key={item.id}
-                    onClick={() => scrollToSection(item.id)}
+                    href={`#${item.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection(item.id);
+                    }}
                     className={`flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-colors text-left ${
                       isActive
                         ? "bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 border border-cyan-500/30"
@@ -219,7 +227,7 @@ export function Navbar() {
                   >
                     <Icon className="text-base text-cyan-600 dark:text-cyan-400" />
                     <span>{item.label}</span>
-                  </button>
+                  </a>
                 );
               })}
             </nav>

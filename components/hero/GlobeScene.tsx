@@ -157,7 +157,7 @@ export function GlobeScene({
       <div className={`relative ${className} flex items-center justify-center overflow-hidden`}>
         <Image
           src={fallbackImage}
-          alt="3D Earth Visualization"
+          alt="Interactive 3D Digital Globe — Global Architecture & Deployments by Animesh Samanta"
           fill
           priority
           className="object-cover opacity-85"
