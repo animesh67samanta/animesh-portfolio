@@ -17,21 +17,35 @@ export interface SendEmailResponse {
 export function validateContactForm(data: ContactFormData): { isValid: boolean; errors: Partial<Record<keyof ContactFormData, string>> } {
   const errors: Partial<Record<keyof ContactFormData, string>> = {};
 
-  if (!data.name || data.name.trim().length < 2) {
+  if (!data.name || typeof data.name !== "string" || data.name.trim().length < 2) {
     errors.name = "Please enter your name (at least 2 characters).";
+  } else if (data.name.trim().length > 100) {
+    errors.name = "Name must not exceed 100 characters.";
   }
 
+  // Strict email validation and prevention of header injection (\r or \n)
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!data.email || !emailRegex.test(data.email.trim())) {
+  const rawEmail = typeof data.email === "string" ? data.email.trim() : "";
+  if (!rawEmail || !emailRegex.test(rawEmail) || /[\r\n]/.test(rawEmail)) {
     errors.email = "Please enter a valid email address.";
+  } else if (rawEmail.length > 100) {
+    errors.email = "Email address must not exceed 100 characters.";
   }
 
-  if (!data.subject || data.subject.trim().length < 3) {
+  const rawSubject = typeof data.subject === "string" ? data.subject.trim() : "";
+  if (!rawSubject || rawSubject.length < 3) {
     errors.subject = "Subject must be at least 3 characters.";
+  } else if (rawSubject.length > 200) {
+    errors.subject = "Subject must not exceed 200 characters.";
+  } else if (/[\r\n]/.test(rawSubject)) {
+    errors.subject = "Subject must not contain line breaks.";
   }
 
-  if (!data.message || data.message.trim().length < 10) {
+  const rawMessage = typeof data.message === "string" ? data.message.trim() : "";
+  if (!rawMessage || rawMessage.length < 10) {
     errors.message = "Message must be at least 10 characters.";
+  } else if (rawMessage.length > 3000) {
+    errors.message = "Message must not exceed 3000 characters.";
   }
 
   if (data.honeypot && data.honeypot.trim() !== "") {

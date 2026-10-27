@@ -139,13 +139,6 @@ The optimized static website will be generated in the `out/` directory.
    - `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY`
 4. Click **Deploy**. Vercel will build and serve the static export automatically.
 
-### Deploying to Netlify
-1. Connect your repository in [Netlify](https://www.netlify.com).
-2. Set Build Command: `npm run build`
-3. Set Publish Directory: `out`
-4. Add the `NEXT_PUBLIC_EMAILJS_*` environment variables in Site Settings.
-5. Deploy.
-
 ---
 
 ## 📝 Customizing Content

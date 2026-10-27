@@ -231,72 +231,72 @@ export const projects: Project[] = [
         "Double-entry bookkeeping model for ledger consistency, anti-race condition locks, and token-based API authentication."
     }
   },
-  {
-    id: "mumbai-votes",
-    title: "Mumbai Votes - Civic Portal & Video Transcoding",
-    category: "Media & Tools",
-    subtitle: "Civic Candidate Directory with Coordinate Maps & Media Transcoding",
-    description:
-      "A civic candidate information portal built in PHP MVC with automated media transcoding (converting legacy .flv video assets to modern .mp4 streams) and geolocation coordinate mapping for voters.",
-    highlights: [
-      "Engineered custom batch video conversion utility transcoding .flv to .mp4 format for single uploads or entire server folders.",
-      "Configured interactive mapping with area coordinates for location-based constituency information.",
-      "Built responsive administrative panel to manage candidate bios, track election records, and publish civic updates.",
-      "Optimized video delivery for standard mobile browsers without requiring third-party hosting."
-    ],
-    technologies: ["PHP", "MVC Architecture", "FFmpeg / Transcoder", "Maps API", "MySQL", "JavaScript", "Bootstrap"],
-    metrics: "Automated batch conversion of legacy civic video repositories to mobile-ready MP4",
-    image: "/images/projects/mumbai-votes.png",
-    githubUrl: "https://github.com/animesh67samanta",
-    liveUrl: "https://github.com/animesh67samanta",
-    featured: false,
-    architectureDetails: {
-      overview:
-        "Modular MVC application integrating CLI media conversion utilities and GIS coordinate presentation for public accountability.",
-      keyModules: [
-        "Video Transcoder Pipeline (.flv to .mp4 batch worker)",
-        "Constituency & Candidate Map Geolocation Interface",
-        "Administrative Moderation & Publishing CMS"
-      ],
-      databaseInsights:
-        "Candidate profiles linked with geographic polygon coordinates, historical track records, and media attachments.",
-      securityNotes:
-        "Strict file extension and mime inspection before shell execution, sanitized inputs, and admin role authorization."
-    }
-  },
-  {
-    id: "manyavar",
-    title: "Manyavar - Enterprise Retail Inventory & ERP Module",
-    category: "Enterprise & Gov",
-    subtitle: "High-Scale Retail Web App with RBAC & Courier Logistics",
-    description:
-      "Maintained and enhanced core backend and frontend modules for the Manyavar apparel retail ecosystem, handling role-based permission tiers, Blue-dart courier shipping integrations, and high-volume CSV synchronization.",
-    highlights: [
-      "Maintained and enhanced enterprise Laravel application handling front-end workflows and backend fulfillment.",
-      "Configured robust Role-Based Access Control (RBAC) ensuring precise privileges across sales, warehouse, and management tiers.",
-      "Built bidirectional CSV data import/export engines for high-volume inventory reconciliation and audit reports.",
-      "Crafted interactive data tables utilizing AJAX and Laravel pagination for friction-free inventory navigation.",
-      "Integrated Blue-dart courier tracking webhooks and automated status alerts."
-    ],
-    technologies: ["Laravel", "MySQL", "Blue-dart API", "Bulk CSV/Excel", "AJAX", "CRON Jobs", "Plesk", "Jira", "Bitbucket"],
-    metrics: "Zero-downtime inventory reconciliations and automated courier status updates",
-    image: "/images/projects/manyavar.png",
-    githubUrl: "https://github.com/animesh67samanta",
-    liveUrl: "https://github.com/animesh67samanta",
-    featured: false,
-    architectureDetails: {
-      overview:
-        "Enterprise ERP maintenance and feature development in an agile team using Jira and Bitbucket pipelines on Plesk servers.",
-      keyModules: [
-        "Inventory Reconciliation & Chunked CSV Exporter",
-        "Blue-dart Logistics & Order Tracking Sync",
-        "Interactive AJAX Data Tables with Cursor Pagination",
-        "Warehouse RBAC & Permission Middleware"
-      ],
-      databaseInsights:
-        "Optimized inventory SKU tables with composite keys and indexed timestamps to prevent lock contention during mass imports.",
-      securityNotes:
-        "Role authorization middleware, audit tracking of stock adjustments, and secure webhook signature verification."
-    }
-  }
+  // {
+  //   id: "mumbai-votes",
+  //   title: "Mumbai Votes - Civic Portal & Video Transcoding",
+  //   category: "Media & Tools",
+  //   subtitle: "Civic Candidate Directory with Coordinate Maps & Media Transcoding",
+  //   description:
+  //     "A civic candidate information portal built in PHP MVC with automated media transcoding (converting legacy .flv video assets to modern .mp4 streams) and geolocation coordinate mapping for voters.",
+  //   highlights: [
+  //     "Engineered custom batch video conversion utility transcoding .flv to .mp4 format for single uploads or entire server folders.",
+  //     "Configured interactive mapping with area coordinates for location-based constituency information.",
+  //     "Built responsive administrative panel to manage candidate bios, track election records, and publish civic updates.",
+  //     "Optimized video delivery for standard mobile browsers without requiring third-party hosting."
+  //   ],
+  //   technologies: ["PHP", "MVC Architecture", "FFmpeg / Transcoder", "Maps API", "MySQL", "JavaScript", "Bootstrap"],
+  //   metrics: "Automated batch conversion of legacy civic video repositories to mobile-ready MP4",
+  //   image: "/images/projects/mumbai-votes.png",
+  //   githubUrl: "https://github.com/animesh67samanta",
+  //   liveUrl: "https://github.com/animesh67samanta",
+  //   featured: false,
+  //   architectureDetails: {
+  //     overview:
+  //       "Modular MVC application integrating CLI media conversion utilities and GIS coordinate presentation for public accountability.",
+  //     keyModules: [
+  //       "Video Transcoder Pipeline (.flv to .mp4 batch worker)",
+  //       "Constituency & Candidate Map Geolocation Interface",
+  //       "Administrative Moderation & Publishing CMS"
+  //     ],
+  //     databaseInsights:
+  //       "Candidate profiles linked with geographic polygon coordinates, historical track records, and media attachments.",
+  //     securityNotes:
+  //       "Strict file extension and mime inspection before shell execution, sanitized inputs, and admin role authorization."
+  //   }
+  // },
+  // {
+  //   id: "manyavar",
+  //   title: "Manyavar - Enterprise Retail Inventory & ERP Module",
+  //   category: "Enterprise & Gov",
+  //   subtitle: "High-Scale Retail Web App with RBAC & Courier Logistics",
+  //   description:
+  //     "Maintained and enhanced core backend and frontend modules for the Manyavar apparel retail ecosystem, handling role-based permission tiers, Blue-dart courier shipping integrations, and high-volume CSV synchronization.",
+  //   highlights: [
+  //     "Maintained and enhanced enterprise Laravel application handling front-end workflows and backend fulfillment.",
+  //     "Configured robust Role-Based Access Control (RBAC) ensuring precise privileges across sales, warehouse, and management tiers.",
+  //     "Built bidirectional CSV data import/export engines for high-volume inventory reconciliation and audit reports.",
+  //     "Crafted interactive data tables utilizing AJAX and Laravel pagination for friction-free inventory navigation.",
+  //     "Integrated Blue-dart courier tracking webhooks and automated status alerts."
+  //   ],
+  //   technologies: ["Laravel", "MySQL", "Blue-dart API", "Bulk CSV/Excel", "AJAX", "CRON Jobs", "Plesk", "Jira", "Bitbucket"],
+  //   metrics: "Zero-downtime inventory reconciliations and automated courier status updates",
+  //   image: "/images/projects/manyavar.png",
+  //   githubUrl: "https://github.com/animesh67samanta",
+  //   liveUrl: "https://github.com/animesh67samanta",
+  //   featured: false,
+  //   architectureDetails: {
+  //     overview:
+  //       "Enterprise ERP maintenance and feature development in an agile team using Jira and Bitbucket pipelines on Plesk servers.",
+  //     keyModules: [
+  //       "Inventory Reconciliation & Chunked CSV Exporter",
+  //       "Blue-dart Logistics & Order Tracking Sync",
+  //       "Interactive AJAX Data Tables with Cursor Pagination",
+  //       "Warehouse RBAC & Permission Middleware"
+  //     ],
+  //     databaseInsights:
+  //       "Optimized inventory SKU tables with composite keys and indexed timestamps to prevent lock contention during mass imports.",
+  //     securityNotes:
+  //       "Role authorization middleware, audit tracking of stock adjustments, and secure webhook signature verification."
+  //   }
+  // }
 ];
