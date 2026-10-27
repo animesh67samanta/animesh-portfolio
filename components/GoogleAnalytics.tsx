@@ -11,10 +11,9 @@ import { GoogleAnalytics as NextGA } from "@next/third-parties/google";
  * Safely guards against missing or unconfigured placeholder IDs ("G-XXXXXXXXXX").
  */
 export function GoogleAnalytics() {
-  const gaId = process.env.NEXT_PUBLIC_GA_ID;
+  const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-Z39KYRHH2N";
 
-  // Only render if a real Measurement ID is configured
-  if (!gaId || gaId === "G-TVF3PZYCVT" || !gaId.startsWith("G-")) {
+  if (!gaId || !gaId.startsWith("G-")) {
     return null;
   }
 

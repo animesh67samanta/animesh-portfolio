@@ -138,12 +138,12 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        <GoogleAnalytics />
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <JsonLd />
         <BotIdClient protect={protectedRoutes} />
       </head>
       <body className="bg-[#f8fafc] text-slate-900 dark:bg-[#090b10] dark:text-[#f8fafc] min-h-screen flex flex-col antialiased selection:bg-cyan-400 selection:text-slate-950 transition-colors duration-250">
-        <GoogleAnalytics />
         <ThemeProvider>
           {children}
           <Analytics />
