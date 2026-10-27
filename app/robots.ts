@@ -8,6 +8,5 @@ export default function robots(): MetadataRoute.Robots {
       disallow: ["/api/"],
     },
     sitemap: "https://animeshsamanta.is-a.dev/sitemap.xml",
-    host: "https://animeshsamanta.is-a.dev",
   };
 }
