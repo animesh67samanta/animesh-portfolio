@@ -15,6 +15,7 @@ import {
 } from "react-icons/fi";
 import { portfolioData } from "@/data/portfolioData";
 import { FadeIn } from "@/components/animations/FadeIn";
+import { trackGitHubClick, trackExternalLinkClick } from "@/lib/analytics";
 
 export function About() {
   const principles = [
@@ -186,6 +187,7 @@ export function About() {
                 href="https://github.com/animesh67samanta/devgit"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackGitHubClick("about_devgit", "https://github.com/animesh67samanta/devgit")}
                 className="px-5 py-3 rounded-2xl bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-semibold text-xs sm:text-sm hover:bg-slate-800 dark:hover:bg-slate-100 transition-all flex items-center justify-center gap-2 shadow-lg"
               >
                 <FiGithub className="w-4 h-4" />
@@ -195,6 +197,7 @@ export function About() {
                 href="https://github.com/animesh67samanta/devgit/releases/latest"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackExternalLinkClick("https://github.com/animesh67samanta/devgit/releases/latest", "devgit_releases", "Releases & Binaries")}
                 className="px-5 py-3 rounded-2xl bg-white dark:bg-slate-800/80 hover:bg-slate-50 dark:hover:bg-slate-700/80 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-semibold text-xs sm:text-sm transition-all flex items-center justify-center gap-2"
               >
                 <FiExternalLink className="w-4 h-4" />

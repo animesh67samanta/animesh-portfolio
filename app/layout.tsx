@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -137,23 +137,13 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} dark scroll-smooth`}
       suppressHydrationWarning
     >
-      <GoogleTagManager gtmId="GTM-TRG4BSPK" />
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <JsonLd />
         <BotIdClient protect={protectedRoutes} />
       </head>
       <body className="bg-[#f8fafc] text-slate-900 dark:bg-[#090b10] dark:text-[#f8fafc] min-h-screen flex flex-col antialiased selection:bg-cyan-400 selection:text-slate-950 transition-colors duration-250">
-        {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-TRG4BSPK"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
-        {/* End Google Tag Manager (noscript) */}
+        <GoogleAnalytics />
         <ThemeProvider>
           {children}
           <Analytics />

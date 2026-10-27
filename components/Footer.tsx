@@ -5,6 +5,7 @@ import { FiArrowUp } from "react-icons/fi";
 import { SiGithub } from "react-icons/si";
 import { FaLinkedin, FaFacebook } from "react-icons/fa6";
 import { portfolioData } from "@/data/portfolioData";
+import { trackGitHubClick, trackLinkedInClick, trackExternalLinkClick } from "@/lib/analytics";
 
 export function Footer() {
   const scrollToTop = () => {
@@ -33,6 +34,7 @@ export function Footer() {
             href={portfolioData.personal.socialLinks.github}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackGitHubClick("footer", portfolioData.personal.socialLinks.github)}
             className="text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
             aria-label="GitHub Profile"
           >
@@ -42,6 +44,7 @@ export function Footer() {
             href={portfolioData.personal.socialLinks.linkedin}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackLinkedInClick("footer", portfolioData.personal.socialLinks.linkedin)}
             className="text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
             aria-label="LinkedIn Profile"
           >
@@ -51,6 +54,7 @@ export function Footer() {
             href={portfolioData.personal.socialLinks.facebook}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackExternalLinkClick(portfolioData.personal.socialLinks.facebook, "social_facebook", "Facebook Profile")}
             className="text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
             aria-label="Facebook Profile"
           >

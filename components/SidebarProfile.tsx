@@ -13,9 +13,17 @@ import {
 import { SiGithub } from "react-icons/si";
 import { FaLinkedin, FaFacebook } from "react-icons/fa6";
 import { portfolioData } from "@/data/portfolioData";
+import {
+  trackResumeDownload,
+  trackGitHubClick,
+  trackLinkedInClick,
+  trackContactClick,
+  trackExternalLinkClick,
+} from "@/lib/analytics";
 
 export function SidebarProfile() {
   const scrollToContact = () => {
+    trackContactClick("form", "sidebar_profile_cta");
     const el = document.getElementById("contact");
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
@@ -120,6 +128,7 @@ export function SidebarProfile() {
             href={portfolioData.personal.socialLinks.github}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackGitHubClick("sidebar_profile", portfolioData.personal.socialLinks.github)}
             className="w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/80 dark:hover:bg-cyan-500/20 border border-slate-200 dark:border-slate-700/60 hover:border-cyan-500/50 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all duration-200"
             aria-label="GitHub Profile"
           >
@@ -129,6 +138,7 @@ export function SidebarProfile() {
             href={portfolioData.personal.socialLinks.linkedin}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackLinkedInClick("sidebar_profile", portfolioData.personal.socialLinks.linkedin)}
             className="w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/80 dark:hover:bg-cyan-500/20 border border-slate-200 dark:border-slate-700/60 hover:border-cyan-500/50 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all duration-200"
             aria-label="LinkedIn Profile"
           >
@@ -138,6 +148,7 @@ export function SidebarProfile() {
             href={portfolioData.personal.socialLinks.facebook}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackExternalLinkClick(portfolioData.personal.socialLinks.facebook, "social_facebook", "Facebook Profile")}
             className="w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/80 dark:hover:bg-cyan-500/20 border border-slate-200 dark:border-slate-700/60 hover:border-cyan-500/50 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all duration-200"
             aria-label="Facebook Profile"
           >
@@ -145,6 +156,7 @@ export function SidebarProfile() {
           </a>
           <a
             href={portfolioData.personal.socialLinks.email}
+            onClick={() => trackContactClick("email", "sidebar_profile")}
             className="w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/80 dark:hover:bg-cyan-500/20 border border-slate-200 dark:border-slate-700/60 hover:border-cyan-500/50 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all duration-200"
             aria-label="Email Animesh"
           >
@@ -152,6 +164,7 @@ export function SidebarProfile() {
           </a>
           <a
             href={portfolioData.personal.socialLinks.phone}
+            onClick={() => trackContactClick("phone", "sidebar_profile")}
             className="w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/80 dark:hover:bg-cyan-500/20 border border-slate-200 dark:border-slate-700/60 hover:border-cyan-500/50 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all duration-200"
             aria-label="Call Animesh"
           >
@@ -164,6 +177,7 @@ export function SidebarProfile() {
           <a
             href={portfolioData.personal.resumePdf}
             download="Animesh-Samanta-Resume.pdf"
+            onClick={() => trackResumeDownload("sidebar_profile")}
             className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-xs font-semibold text-slate-800 dark:text-white bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/90 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700/80 hover:border-cyan-500/50 transition-all shadow-sm group/btn"
           >
             <FiDownload className="text-cyan-600 dark:text-cyan-400 group-hover/btn:-translate-y-0.5 transition-transform" />

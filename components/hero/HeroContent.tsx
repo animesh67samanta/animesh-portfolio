@@ -7,6 +7,13 @@ import { FaLinkedin, FaFacebook } from "react-icons/fa6";
 import { portfolioData } from "@/data/portfolioData";
 import { TextReveal } from "@/components/animations/TextReveal";
 import { FadeIn } from "@/components/animations/FadeIn";
+import {
+  trackResumeDownload,
+  trackGitHubClick,
+  trackLinkedInClick,
+  trackContactClick,
+  trackExternalLinkClick,
+} from "@/lib/analytics";
 
 export function HeroContent() {
   const scrollToProjects = () => {
@@ -95,6 +102,7 @@ export function HeroContent() {
           <a
             href={portfolioData.personal.resumePdf}
             download="Animesh-Samanta-Resume.pdf"
+            onClick={() => trackResumeDownload("hero_cta")}
             className="flex items-center gap-2 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-800 dark:text-white bg-white dark:bg-slate-900/90 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 hover:border-cyan-500/50 transition-all duration-200 shadow-sm"
           >
             <FiDownload className="text-cyan-600 dark:text-cyan-400" />
@@ -107,6 +115,7 @@ export function HeroContent() {
               href={portfolioData.personal.socialLinks.github}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackGitHubClick("hero_socials", portfolioData.personal.socialLinks.github)}
               className="p-3 rounded-xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:border-cyan-500/40 transition-colors shadow-sm"
               aria-label="GitHub Profile"
             >
@@ -116,6 +125,7 @@ export function HeroContent() {
               href={portfolioData.personal.socialLinks.linkedin}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackLinkedInClick("hero_socials", portfolioData.personal.socialLinks.linkedin)}
               className="p-3 rounded-xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:border-cyan-500/40 transition-colors shadow-sm"
               aria-label="LinkedIn Profile"
             >
@@ -125,6 +135,7 @@ export function HeroContent() {
               href={portfolioData.personal.socialLinks.facebook}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackExternalLinkClick(portfolioData.personal.socialLinks.facebook, "social_facebook", "Facebook Profile")}
               className="p-3 rounded-xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:border-cyan-500/40 transition-colors shadow-sm"
               aria-label="Facebook Profile"
             >
@@ -132,6 +143,7 @@ export function HeroContent() {
             </a>
             <a
               href={portfolioData.personal.socialLinks.email}
+              onClick={() => trackContactClick("email", "hero_socials")}
               className="p-3 rounded-xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:border-cyan-500/40 transition-colors shadow-sm"
               aria-label="Email Animesh"
             >

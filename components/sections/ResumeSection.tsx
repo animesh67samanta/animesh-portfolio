@@ -9,6 +9,7 @@ import {
 } from "react-icons/fi";
 import { portfolioData } from "@/data/portfolioData";
 import { FadeIn } from "@/components/animations/FadeIn";
+import { trackResumeDownload } from "@/lib/analytics";
 
 export function ResumeSection() {
   return (
@@ -34,6 +35,7 @@ export function ResumeSection() {
           <a
             href={portfolioData.personal.resumePdf}
             download="Animesh-Samanta-Resume.pdf"
+            onClick={() => trackResumeDownload("credentials_section")}
             className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-2xl text-xs sm:text-sm font-semibold text-slate-950 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 shadow-lg shadow-cyan-500/20 transition-all duration-200 shrink-0"
           >
             <FiDownload className="w-4 h-4" />

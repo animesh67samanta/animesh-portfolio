@@ -15,6 +15,12 @@ import { FaLinkedin, FaFacebook } from "react-icons/fa6";
 import { portfolioData } from "@/data/portfolioData";
 import { sendContactEmail, validateContactForm, ContactFormData } from "@/lib/emailjs";
 import { FadeIn } from "@/components/animations/FadeIn";
+import {
+  trackContactClick,
+  trackGitHubClick,
+  trackLinkedInClick,
+  trackExternalLinkClick,
+} from "@/lib/analytics";
 
 export function Contact() {
   const [formData, setFormData] = useState<ContactFormData>({
@@ -68,6 +74,7 @@ export function Contact() {
 
       const response = await res.json();
       if (response.success) {
+        trackContactClick("form", "contact_form_success");
         setStatusMessage({
           type: "success",
           text: response.message,
@@ -91,6 +98,7 @@ export function Contact() {
       try {
         const fallbackResponse = await sendContactEmail(formData);
         if (fallbackResponse.success) {
+          trackContactClick("form", "contact_form_fallback_success");
           setStatusMessage({
             type: "success",
             text: fallbackResponse.message,
@@ -157,6 +165,7 @@ export function Contact() {
                   </span>
                   <a
                     href={portfolioData.personal.socialLinks.email}
+                    onClick={() => trackContactClick("email", "contact_section")}
                     className="text-sm font-semibold text-slate-900 dark:text-white hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors break-all"
                   >
                     {portfolioData.personal.email}
@@ -174,6 +183,7 @@ export function Contact() {
                   </span>
                   <a
                     href={portfolioData.personal.socialLinks.phone}
+                    onClick={() => trackContactClick("phone", "contact_section")}
                     className="text-sm font-semibold text-slate-900 dark:text-white hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
                   >
                     {portfolioData.personal.phone}
@@ -211,6 +221,7 @@ export function Contact() {
                   href={portfolioData.personal.socialLinks.github}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackGitHubClick("contact_section", portfolioData.personal.socialLinks.github)}
                   className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-cyan-50 dark:hover:bg-cyan-500/20 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
                   aria-label="GitHub Profile"
                 >
@@ -220,6 +231,7 @@ export function Contact() {
                   href={portfolioData.personal.socialLinks.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackLinkedInClick("contact_section", portfolioData.personal.socialLinks.linkedin)}
                   className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-cyan-50 dark:hover:bg-cyan-500/20 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
                   aria-label="LinkedIn Profile"
                 >
@@ -229,6 +241,7 @@ export function Contact() {
                   href={portfolioData.personal.socialLinks.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackExternalLinkClick(portfolioData.personal.socialLinks.facebook, "social_facebook", "Facebook Profile")}
                   className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-cyan-50 dark:hover:bg-cyan-500/20 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
                   aria-label="Facebook Profile"
                 >

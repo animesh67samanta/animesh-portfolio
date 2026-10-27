@@ -14,6 +14,7 @@ import {
 } from "react-icons/fi";
 import { portfolioData, Project } from "@/data/portfolioData";
 import { FadeIn } from "@/components/animations/FadeIn";
+import { trackProjectClick, trackGitHubClick, trackExternalLinkClick } from "@/lib/analytics";
 
 type CategoryFilter = "All" | "Developer Tools & CLI" | "Enterprise & Gov" | "Healthcare" | "E-Commerce" | "Media & Tools";
 
@@ -67,7 +68,10 @@ function ProjectCardImage({ project, onOpenModal }: ProjectCardImageProps) {
 
       {/* Architecture Inspect Button */}
       <button
-        onClick={onOpenModal}
+        onClick={() => {
+          trackProjectClick(project.title, "blueprint_card_button");
+          onOpenModal();
+        }}
         className="absolute bottom-3 right-3 px-3 py-1.5 rounded-xl bg-white/90 dark:bg-slate-900/90 hover:bg-cyan-500 hover:text-slate-950 dark:hover:bg-cyan-500 dark:hover:text-slate-950 border border-slate-200 dark:border-slate-700/60 text-slate-800 dark:text-slate-200 text-xs font-medium backdrop-blur-md transition-all flex items-center gap-1.5 shadow-lg z-10"
         aria-label={`View architecture details for ${project.title}`}
       >
@@ -175,7 +179,10 @@ export function Projects() {
 
                   <div className="flex items-center justify-between pt-1">
                     <button
-                      onClick={() => setActiveModalProject(project)}
+                      onClick={() => {
+                        trackProjectClick(project.title, "blueprint_link");
+                        setActiveModalProject(project);
+                      }}
                       className="text-xs font-semibold text-cyan-600 dark:text-cyan-400 hover:text-cyan-500 dark:hover:text-cyan-300 flex items-center gap-1 group/btn"
                     >
                       <span>Explore System Blueprint</span>
@@ -188,6 +195,10 @@ export function Projects() {
                           href={project.githubUrl}
                           target="_blank"
                           rel="noopener noreferrer"
+                          onClick={() => {
+                            trackGitHubClick("project_card", project.githubUrl);
+                            trackProjectClick(project.title, project.githubUrl);
+                          }}
                           className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
                           aria-label="GitHub Repository"
                         >
@@ -199,6 +210,10 @@ export function Projects() {
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
+                          onClick={() => {
+                            trackExternalLinkClick(project.liveUrl, "project_live_demo", project.title);
+                            trackProjectClick(project.title, project.liveUrl);
+                          }}
                           className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
                           aria-label="Live Demo"
                         >

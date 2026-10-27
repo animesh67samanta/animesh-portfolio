@@ -17,6 +17,7 @@ import {
 } from "react-icons/fi";
 import { portfolioData } from "@/data/portfolioData";
 import { ThemeToggle } from "./ThemeToggle";
+import { trackResumeDownload } from "@/lib/analytics";
 
 interface NavItem {
   id: string;
@@ -143,6 +144,7 @@ export function Navbar() {
             <a
               href={portfolioData.personal.resumePdf}
               download="Animesh-Samanta-Resume.pdf"
+              onClick={() => trackResumeDownload("navbar_cta")}
               className="flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-800 dark:text-white bg-white dark:bg-slate-800/90 hover:bg-slate-50 dark:hover:bg-slate-700/90 border border-slate-200 dark:border-slate-700/80 hover:border-cyan-500/50 transition-all duration-200 shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
             >
               <FiDownload className="text-cyan-600 dark:text-cyan-400" />
@@ -242,6 +244,10 @@ export function Navbar() {
             <a
               href={portfolioData.personal.resumePdf}
               download="Animesh-Samanta-Resume.pdf"
+              onClick={() => {
+                trackResumeDownload("navbar_mobile_menu");
+                setMobileMenuOpen(false);
+              }}
               className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-800 dark:text-white bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 hover:border-cyan-500 transition-colors"
             >
               <FiDownload className="text-cyan-600 dark:text-cyan-400" />
