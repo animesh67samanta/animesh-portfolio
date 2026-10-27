@@ -18,6 +18,10 @@ export interface Project {
     databaseInsights: string;
     securityNotes: string;
   };
+  galleryImages?: {
+    url: string;
+    caption: string;
+  }[];
 }
 
 export const projects: Project[] = [
@@ -54,7 +58,13 @@ export const projects: Project[] = [
         "SQLite strictly stores DevGit's operational metadata (command runtime, exit status, and UI settings). It never stores Git objects, diffs, file contents, credentials, or secrets. DevGit functions normally even if SQLite is disabled, locked, or unavailable.",
       securityNotes:
         "All external commands execute with structured arguments avoiding shell interpretation (sh -c / bash -c). Push and branch operations enforce pre-flight safety checks (upstream verification, uncommitted changes protection, and guarded branch/stash deletion)."
-    }
+    },
+    galleryImages: [
+      {
+        url: "/images/projects/devgit.png",
+        caption: "DevGit Terminal UI Dashboard with Lip Gloss styling and Bubble Tea views"
+      }
+    ]
   },
   {
     id: "local-doctors",
@@ -89,7 +99,17 @@ export const projects: Project[] = [
         "Normalized schema with doctors, clinic_schedules, appointments, lab_orders, and encrypted patient_records tables indexed for fast availability lookups.",
       securityNotes:
         "Role-based middleware, encrypted health documents storage, strict MIME-type validation, and request throttling."
-    }
+    },
+    galleryImages: [
+      {
+        url: "/images/projects/local_doctor_booking.png",
+        caption: "Doctor appointment booking interface with real-time slot locking"
+      },
+      {
+        url: "/images/projects/local_doctor_find.png",
+        caption: "Clinic schedule and doctor directory search with location filtering"
+      }
+    ]
   },
   {
     id: "smartgram-property",
@@ -124,7 +144,21 @@ export const projects: Project[] = [
         "Comprehensive property records with annual assessment history, ward partitions, and dual-language columns (e.g. owner_name, owner_name_mr).",
       securityNotes:
         "Custom authorization policies, tamper-evident certificate serial numbers, and SMS verification on bill issuance."
-    }
+    },
+    galleryImages: [
+      {
+        url: "/images/projects/property_tax.png",
+        caption: "Property tax ledger assessment, demand calculation, and ward management"
+      },
+      {
+        url: "/images/projects/the_samrtgram.png",
+        caption: "Panchayat administrative dashboard for civic tax collection"
+      },
+      {
+        url: "/images/projects/thesmartgram_landing.png",
+        caption: "Citizen portal for online property tax payments and official certificates"
+      }
+    ]
   },
   {
     id: "smartgram-water",
@@ -159,7 +193,21 @@ export const projects: Project[] = [
         "Indexed meter_readings, water_connections, and billing_invoices tables with optimized foreign keys ensuring sub-100ms queries.",
       securityNotes:
         "Spatie permission-based route guards, Sanctum bearer tokens, and rate-limited API endpoints."
-    }
+    },
+    galleryImages: [
+      {
+        url: "/images/projects/water_tax_performace.png",
+        caption: "Water connection utility analytics and collection reconciliation"
+      },
+      {
+        url: "/images/projects/water_tax_bill.png",
+        caption: "Automated water bill generation with DOMPDF and ledger tracking"
+      },
+      {
+        url: "/images/projects/water_tax_due.png",
+        caption: "Delinquency tracking and automated SMS payment reminders"
+      }
+    ]
   },
   {
     id: "rajneta",
@@ -194,7 +242,21 @@ export const projects: Project[] = [
         "Relational database optimized for regional partitioning, constituency lookups, fast full-text searching on welfare schemes, and cached news feeds using Redis.",
       securityNotes:
         "Sanctum bearer token authentication, request throttling, content moderation workflows, and strict role-based access for editors and administrators."
-    }
+    },
+    galleryImages: [
+      {
+        url: "/images/projects/rajneta.png",
+        caption: "Civic news portal with real-time constituency policy announcements"
+      },
+      {
+        url: "/images/projects/rajneta_start.png",
+        caption: "Citizen onboarding and representative directory search interface"
+      },
+      {
+        url: "/images/projects/rajneta_end.png",
+        caption: "Welfare scheme eligibility knowledge base and application workflow"
+      }
+    ]
   },
   {
     id: "earning-handle",
@@ -229,7 +291,13 @@ export const projects: Project[] = [
         "Denormalized commission balances with atomic transactions (DB::transaction) and comprehensive query indexing on user referral paths.",
       securityNotes:
         "Double-entry bookkeeping model for ledger consistency, anti-race condition locks, and token-based API authentication."
-    }
+    },
+    galleryImages: [
+      {
+        url: "/images/projects/earning-handle.png",
+        caption: "Affiliate network commission hierarchy calculation and digital wallet payouts"
+      }
+    ]
   },
   // {
   //   id: "mumbai-votes",

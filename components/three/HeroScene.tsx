@@ -281,7 +281,7 @@ export function HeroScene({ fallbackImage = "/images/hero-3d-bg.png" }: HeroScen
       <div className="relative w-full h-full min-h-[380px] flex items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-slate-100 via-slate-200 to-slate-100 dark:from-slate-950 dark:via-[#0d121f] dark:to-slate-950 border border-slate-200 dark:border-slate-800/60 shadow-xl dark:shadow-2xl">
         <Image
           src={fallbackImage}
-          alt="3D Interactive Abstract Hero Element"
+          alt="Animesh Samanta Portfolio — 3D Interactive Architecture Element"
           fill
           className="object-cover opacity-85"
           priority
@@ -297,7 +297,7 @@ export function HeroScene({ fallbackImage = "/images/hero-3d-bg.png" }: HeroScen
       <div className="absolute inset-0 opacity-15 dark:opacity-25 pointer-events-none select-none transition-opacity duration-250">
         <Image
           src={fallbackImage}
-          alt="Abstract 3D Background Lighting"
+          alt="Animesh Samanta Portfolio — 3D Ambient Visual Element"
           fill
           className="object-cover blur-sm"
           priority

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   FiExternalLink,
   FiGithub,
@@ -10,7 +11,8 @@ import {
   FiX,
   FiCheckCircle,
   FiDatabase,
-  FiShield
+  FiShield,
+  FiArrowRight
 } from "react-icons/fi";
 import { portfolioData, Project } from "@/data/portfolioData";
 import { FadeIn } from "@/components/animations/FadeIn";
@@ -177,19 +179,28 @@ export function Projects() {
                     ))}
                   </div>
 
-                  <div className="flex items-center justify-between pt-1">
-                    <button
-                      onClick={() => {
-                        trackProjectClick(project.title, "blueprint_link");
-                        setActiveModalProject(project);
-                      }}
-                      className="text-xs font-semibold text-cyan-600 dark:text-cyan-400 hover:text-cyan-500 dark:hover:text-cyan-300 flex items-center gap-1 group/btn"
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2">
+                    <Link
+                      href={`/projects/${project.id}`}
+                      className="text-xs font-semibold text-cyan-600 dark:text-cyan-400 hover:text-cyan-500 dark:hover:text-cyan-300 flex items-center gap-1.5 group/btn"
                     >
-                      <span>Explore System Blueprint</span>
-                      <FiLayers className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
-                    </button>
+                      <span>View Case Study &amp; Architecture</span>
+                      <FiArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
+                    </Link>
 
                     <div className="flex items-center gap-2">
+                      <button
+                        onClick={() => {
+                          trackProjectClick(project.title, "blueprint_link");
+                          setActiveModalProject(project);
+                        }}
+                        className="px-2.5 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-700 text-[11px] font-medium text-slate-700 dark:text-slate-300 transition-colors flex items-center gap-1"
+                        aria-label={`View ${project.title} quick blueprint modal`}
+                      >
+                        <FiLayers className="w-3 h-3 text-cyan-600 dark:text-cyan-400" />
+                        <span>Blueprint</span>
+                      </button>
+
                       {project.githubUrl && (
                         <a
                           href={project.githubUrl}

@@ -10,13 +10,13 @@ export function JsonLd() {
     name: "Animesh Samanta",
     givenName: "Animesh",
     familyName: "Samanta",
-    jobTitle: "Laravel and PHP Developer",
+    jobTitle: "Laravel & PHP Developer",
     gender: "Male",
     nationality: "Indian",
     url: baseUrl,
     image: `${baseUrl}/images/avatar.png`,
     description:
-      "Laravel and PHP Developer with 3+ years of experience architecting high-performance REST APIs, municipal tax automation platforms, database query optimization, and queue processing systems. Author of DevGit CLI.",
+      "Animesh Samanta is a Laravel & PHP Developer with 3+ years of experience architecting high-throughput REST APIs, database optimizations, and civic platforms.",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Kolkata",
@@ -28,8 +28,11 @@ export function JsonLd() {
     sameAs: [
       "https://github.com/animesh67samanta",
       "https://www.linkedin.com/in/animesh-samanta-296b24211",
-      "https://www.facebook.com/animesh67samanta",
     ],
+    worksFor: {
+      "@type": "Organization",
+      name: "Adgion Technology Pvt. Ltd.",
+    },
     alumniOf: {
       "@type": "EducationalOrganization",
       name: "Maulana Abul Kalam Azad University of Technology (MAKAUT)",

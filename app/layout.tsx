@@ -34,15 +34,16 @@ const baseUrl = "https://animeshsamanta.is-a.dev";
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "Animesh Samanta | Laravel & PHP Developer",
+    default: "Animesh Samanta | Laravel & PHP Developer Portfolio",
     template: "%s | Animesh Samanta",
   },
   description:
-    "Official portfolio of Animesh Samanta, a Laravel and PHP Developer with 3+ years of experience architecting high-performance REST APIs, municipal tax automation platforms, database query optimization, and queue processing systems. Author of DevGit CLI.",
+    "Animesh Samanta is a Laravel & PHP Developer with 3+ years of experience architecting high-throughput REST APIs, database optimizations, and civic platforms.",
   keywords: [
     "Animesh Samanta",
     "Animesh Samanta Laravel Developer",
     "Animesh Samanta PHP Developer",
+    "Animesh Samanta Portfolio",
     "Laravel Developer",
     "PHP Developer",
     "Backend Developer",
@@ -62,7 +63,7 @@ export const metadata: Metadata = {
     canonical: baseUrl,
   },
   openGraph: {
-    title: "Animesh Samanta | Laravel & PHP Developer",
+    title: "Animesh Samanta | Laravel & PHP Developer Portfolio",
     description:
       "Explore production systems, verified experience, and architecture blueprints by Animesh Samanta.",
     url: baseUrl,
@@ -80,7 +81,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Animesh Samanta | Laravel & PHP Developer",
+    title: "Animesh Samanta | Laravel & PHP Developer Portfolio",
     description:
       "Explore production systems, verified experience, and architecture blueprints by Animesh Samanta.",
     images: ["/images/og-image.png"],

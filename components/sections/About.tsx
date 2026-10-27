@@ -48,11 +48,11 @@ export function About() {
         <div className="flex items-center gap-3 mb-2">
           <span className="w-8 h-[2px] bg-cyan-500 dark:bg-cyan-400" />
           <span className="text-xs font-semibold text-cyan-600 dark:text-cyan-400 uppercase tracking-widest">
-            About Me
+            About Animesh Samanta
           </span>
         </div>
         <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
-          Architecting Scalable, Resilient Backend Systems
+          Laravel &amp; PHP Developer Architecting Scalable Systems
         </h2>
       </FadeIn>
 
