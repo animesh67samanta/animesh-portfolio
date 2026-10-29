@@ -4,12 +4,18 @@ export type { Project };
 
 export interface ExperienceItem {
   company: string;
+  companyLogo?: string;
   role: string;
-  location: string;
-  workType: "On-site" | "Remote" | "Hybrid";
+  employmentType: "On-site" | "Remote" | "Hybrid" | string;
+  workType?: "On-site" | "Remote" | "Hybrid";
+  startDate?: string;
+  endDate?: string;
   period: string;
-  summary: string;
-  achievements: string[];
+  location: string;
+  description: string;
+  summary?: string;
+  responsibilities: string[];
+  achievements?: string[];
   technologies: string[];
 }
 
@@ -272,12 +278,25 @@ export const portfolioData = {
   experiences: [
     {
       company: "Adgion Technology Pvt. Ltd.",
+      companyLogo: undefined,
       role: "Laravel Developer",
-      location: "Kolkata, India",
+      employmentType: "On-site",
       workType: "On-site",
+      startDate: "Recent",
+      endDate: "Present",
       period: "Recent Experience",
+      location: "Kolkata, India",
+      description:
+        "Architecting robust enterprise REST APIs and web application modules using Laravel clean architecture, integrating AI endpoints, and hardening security.",
       summary:
         "Architecting robust enterprise REST APIs and web application modules using Laravel clean architecture, integrating AI endpoints, and hardening security.",
+      responsibilities: [
+        "Architected scalable REST APIs using Laravel and clean architecture principles to service web and mobile frontends.",
+        "Built modular admin and user-facing portals combining Blade, Laravel, and responsive UI elements.",
+        "Integrated AI-driven features including automatic content generation and intelligent suggestions powered by FastAPI.",
+        "Secured external integrations including email providers, transactional notification streams, and OTP-based authentication.",
+        "Implemented queue processing, asynchronous background jobs, domain events, and scheduled tasks to maximize application throughput."
+      ],
       achievements: [
         "Architected scalable REST APIs using Laravel and clean architecture principles to service web and mobile frontends.",
         "Built modular admin and user-facing portals combining Blade, Laravel, and responsive UI elements.",
@@ -289,12 +308,26 @@ export const portfolioData = {
     },
     {
       company: "Aman Enterprises",
+      companyLogo: undefined,
       role: "Laravel Developer",
-      location: "Thane, Maharashtra, India",
+      employmentType: "Remote",
       workType: "Remote",
+      startDate: "Enterprise",
+      endDate: "Key Engagement",
       period: "Key Enterprise Engagement",
+      location: "Thane, Maharashtra, India",
+      description:
+        "Led the backend engineering of a comprehensive Property & Water Tax Management Platform, automating municipal computations and issuing digital certificates.",
       summary:
         "Led the backend engineering of a comprehensive Property & Water Tax Management Platform, automating municipal computations and issuing digital certificates.",
+      responsibilities: [
+        "Architected a Laravel and MySQL-based Property Tax Management System that automated tax calculations, certificate issuance, and approval workflows, reducing manual processing time by over 65%.",
+        "Built bulk import engines for property and previous tax records with computerized tax calculation and validation.",
+        "Engineered automated PDF generation for tax slips, demand bills, and government certificates using DOMPDF.",
+        "Created an officer approval workflow with digital signature integration for certificates and demand bills.",
+        "Designed a bilingual database architecture supporting Marathi translations via _mr suffix schema fields for government compliance.",
+        "Systematized annual tax synchronization across all wards through the custom 'hometax:sync' command via Laravel Scheduler & CRON."
+      ],
       achievements: [
         "Architected a Laravel and MySQL-based Property Tax Management System that automated tax calculations, certificate issuance, and approval workflows, reducing manual processing time by over 65%.",
         "Built bulk import engines for property and previous tax records with computerized tax calculation and validation.",
@@ -307,12 +340,26 @@ export const portfolioData = {
     },
     {
       company: "Bluehorse Software Solution Pvt. Ltd.",
+      companyLogo: undefined,
       role: "PHP Web Developer",
-      location: "West Medinipur, India",
+      employmentType: "On-site",
       workType: "On-site",
+      startDate: "Foundational",
+      endDate: "Career Experience",
       period: "Foundational Career Experience",
+      location: "West Medinipur, India",
+      description:
+        "Maintained and enhanced high-traffic Laravel and Core PHP applications, optimized databases, implemented payment gateways, and cut load times.",
       summary:
         "Maintained and enhanced high-traffic Laravel and Core PHP applications, optimized databases, implemented payment gateways, and cut load times.",
+      responsibilities: [
+        "Maintained and enhanced complex Laravel and Core PHP applications, upgrading outdated codebases for marked response speed boosts.",
+        "Collaborated tightly with a team of three developers to streamline sprint deliverables and reduce project delivery timelines.",
+        "Customized commercial WordPress and WooCommerce themes, driving higher client satisfaction and retention.",
+        "Modernized core features such as automated email notifications and Laravel cursor pagination, substantially lowering user complaints.",
+        "Integrated PhonePe and Razorpay payment gateways, facilitating secure transactional processing for hundreds of users.",
+        "Re-engineered form submission workflows using AJAX, cutting page load times by 50%."
+      ],
       achievements: [
         "Maintained and enhanced complex Laravel and Core PHP applications, upgrading outdated codebases for marked response speed boosts.",
         "Collaborated tightly with a team of three developers to streamline sprint deliverables and reduce project delivery timelines.",

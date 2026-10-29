@@ -1,15 +1,26 @@
 import React from "react";
+import dynamic from "next/dynamic";
 import { Navbar } from "@/components/Navbar";
 import { SidebarProfile } from "@/components/SidebarProfile";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
 import { Skills } from "@/components/sections/Skills";
 import { Experience } from "@/components/sections/Experience";
-import { Projects } from "@/components/sections/Projects";
-import { Services } from "@/components/sections/Services";
-import { ResumeSection } from "@/components/sections/ResumeSection";
-import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/Footer";
+
+// Code-split below-the-fold client sections to reduce initial JavaScript payload while preserving full SSR/SEO
+const Projects = dynamic(
+  () => import("@/components/sections/Projects").then((mod) => mod.Projects)
+);
+const Services = dynamic(
+  () => import("@/components/sections/Services").then((mod) => mod.Services)
+);
+const ResumeSection = dynamic(
+  () => import("@/components/sections/ResumeSection").then((mod) => mod.ResumeSection)
+);
+const Contact = dynamic(
+  () => import("@/components/sections/Contact").then((mod) => mod.Contact)
+);
 
 export default function Home() {
   return (

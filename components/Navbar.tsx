@@ -42,20 +42,29 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
+    let ticking = false;
 
-      // Active section detection
-      const scrollPosition = window.scrollY + 200;
-      for (let i = navItems.length - 1; i >= 0; i--) {
-        const section = document.getElementById(navItems[i].id);
-        if (section) {
-          const sectionTop = section.offsetTop;
-          if (scrollPosition >= sectionTop) {
-            setActiveSection(navItems[i].id);
-            break;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const isScrolled = window.scrollY > 40;
+          setScrolled((prev) => (prev !== isScrolled ? isScrolled : prev));
+
+          const scrollPosition = window.scrollY + 200;
+          for (let i = navItems.length - 1; i >= 0; i--) {
+            const section = document.getElementById(navItems[i].id);
+            if (section) {
+              const sectionTop = section.offsetTop;
+              if (scrollPosition >= sectionTop) {
+                const targetId = navItems[i].id;
+                setActiveSection((prev) => (prev !== targetId ? targetId : prev));
+                break;
+              }
+            }
           }
-        }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 

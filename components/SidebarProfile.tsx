@@ -43,6 +43,7 @@ export function SidebarProfile() {
                 src={portfolioData.personal.avatar}
                 alt="Animesh Samanta - Laravel and PHP Developer"
                 fill
+                sizes="(max-width: 1024px) 144px, 144px"
                 className="object-cover"
                 priority
               />

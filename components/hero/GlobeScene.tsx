@@ -127,14 +127,7 @@ function ResponsiveGlobeAssembly({ prefersReducedMotion }: { prefersReducedMotio
 }
 
 function GlobeFallback() {
-  return (
-    <div className="w-full h-full flex flex-col items-center justify-center bg-transparent">
-      <div className="w-20 h-20 rounded-full border-2 border-cyan-400/30 border-t-cyan-400 animate-spin" />
-      <span className="text-xs text-cyan-400 font-mono tracking-widest mt-4 uppercase">
-        Initializing 3D Globe...
-      </span>
-    </div>
-  );
+  return null;
 }
 
 export function GlobeScene({

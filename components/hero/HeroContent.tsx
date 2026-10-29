@@ -32,36 +32,30 @@ export function HeroContent() {
 
   return (
     <div className="space-y-6">
-      {/* 1. Small Eyebrow Badge */}
-      <FadeIn direction="up" delay={0.1}>
-        <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 text-xs text-slate-700 dark:text-slate-300 shadow-sm">
-          <span className="w-2 h-2 rounded-full bg-cyan-500 dark:bg-cyan-400 animate-ping" />
-          <span className="font-mono text-[11px] font-bold text-cyan-600 dark:text-cyan-400 tracking-wider">
-            HELLO, WORLD — I’M
-          </span>
-        </div>
-      </FadeIn>
+      {/* 1. Small Eyebrow Badge (Immediate SSR paint for instant FCP) */}
+      <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 text-xs text-slate-700 dark:text-slate-300 shadow-sm">
+        <span className="w-2 h-2 rounded-full bg-cyan-500 dark:bg-cyan-400 animate-ping" />
+        <span className="font-mono text-[11px] font-bold text-cyan-600 dark:text-cyan-400 tracking-wider">
+          HELLO, WORLD — I’M
+        </span>
+      </div>
 
-      {/* 2. Main Heading & Rotating Professional Titles */}
-      <FadeIn direction="up" delay={0.2}>
-        <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.12]">
-          Animesh Samanta
-          <span className="block text-2xl sm:text-3xl font-semibold text-slate-700 dark:text-slate-200 mt-2">
-            Laravel &amp; PHP Developer
-          </span>
-          <span className="block text-lg sm:text-2xl font-normal text-slate-500 dark:text-slate-400 mt-1">
-            Specialized as{" "}
-            <TextReveal phrases={rotatingTitles} intervalMs={2800} />
-          </span>
-        </h1>
-      </FadeIn>
+      {/* 2. Main Heading & Rotating Professional Titles (Unblocked LCP Candidate) */}
+      <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.12]">
+        Animesh Samanta
+        <span className="block text-2xl sm:text-3xl font-semibold text-slate-700 dark:text-slate-200 mt-2">
+          Laravel &amp; PHP Developer
+        </span>
+        <span className="block text-lg sm:text-2xl font-normal text-slate-500 dark:text-slate-400 mt-1">
+          Specialized as{" "}
+          <TextReveal phrases={rotatingTitles} intervalMs={2800} />
+        </span>
+      </h1>
 
       {/* 3. Supporting Text */}
-      <FadeIn direction="up" delay={0.3}>
-        <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-xl">
-          Building reliable backend systems, scalable APIs, and meaningful digital experiences with high-performance databases and clean architecture.
-        </p>
-      </FadeIn>
+      <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-xl">
+        Building reliable backend systems, scalable APIs, and meaningful digital experiences with high-performance databases and clean architecture.
+      </p>
 
       {/* 4. Quick Architecture Metrics */}
       <FadeIn direction="up" delay={0.35}>
