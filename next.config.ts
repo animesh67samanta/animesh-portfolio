@@ -1,22 +1,24 @@
 import type { NextConfig } from "next";
 import { withBotId } from "botid/next/config";
 
+const isDev = process.env.NODE_ENV !== "production";
+
 const cspHeader = `
   default-src 'self';
-  script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://va.vercel-scripts.com;
+  script-src 'self' 'unsafe-inline' ${isDev ? "'unsafe-eval'" : ""} https://www.googletagmanager.com https://va.vercel-scripts.com;
   style-src 'self' 'unsafe-inline';
   img-src 'self' data: blob: https://www.googletagmanager.com https://*.google-analytics.com;
   font-src 'self' data:;
   connect-src 'self' https://api.emailjs.com https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://vitals.vercel-insights.com https://api.vercel.com;
-  frame-src 'self' https://www.googletagmanager.com;
+  frame-src 'self' https://www.googletagmanager.com https://www.youtube.com https://www.youtube-nocookie.com https://player.vimeo.com;
   worker-src 'self' blob:;
   manifest-src 'self';
-  media-src 'self';
+  media-src 'self' blob: data:;
   object-src 'none';
   base-uri 'self';
   form-action 'self';
   frame-ancestors 'none';
-  upgrade-insecure-requests;
+  ${isDev ? "" : "upgrade-insecure-requests;"}
 `.replace(/\s{2,}/g, " ").trim();
 
 const securityHeaders = [

@@ -508,49 +508,7 @@ export function Experience() {
             </AnimatePresence>
           </div>
 
-          {/* Navigation Controls Bar */}
-          <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-2xl bg-white/80 dark:bg-[#0c0f17]/80 backdrop-blur-md border border-slate-200/90 dark:border-white/[0.08]">
-            {/* Progress Stepper Indicator */}
-            <div className="flex items-center gap-3 w-full sm:w-auto">
-              <span className="text-xs font-mono font-bold text-slate-900 dark:text-white">
-                0{currentIndex + 1} <span className="text-slate-400 font-normal">/ 0{total}</span>
-              </span>
-
-              {/* Smooth Progress Bar */}
-              <div className="flex-1 sm:w-48 h-1.5 rounded-full bg-slate-200 dark:bg-white/[0.08] overflow-hidden">
-                <motion.div
-                  className="h-full bg-gradient-to-r from-amber-500 via-lime-500 to-cyan-500 rounded-full"
-                  animate={{ width: `${progressPercent}%` }}
-                  transition={{ duration: 0.35, ease: "easeInOut" }}
-                />
-              </div>
-
-              <span className="inline-flex items-center gap-1.5 text-[11px] text-slate-500 dark:text-slate-400 font-medium whitespace-nowrap">
-                <span>Swipe or use arrows to navigate</span>
-              </span>
-            </div>
-
-            {/* Previous & Next Control Buttons */}
-            <div className="flex items-center gap-2">
-              <button
-                type="button"
-                onClick={goToPrev}
-                aria-label="Previous work experience role"
-                className="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-white/[0.04] dark:hover:bg-white/[0.08] border border-slate-200 dark:border-white/[0.08] text-slate-700 dark:text-slate-200 transition-colors focus-visible:ring-2 focus-visible:ring-amber-500"
-              >
-                <FiChevronLeft className="w-4 h-4" />
-              </button>
-
-              <button
-                type="button"
-                onClick={goToNext}
-                aria-label="Next work experience role"
-                className="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-white/[0.04] dark:hover:bg-white/[0.08] border border-slate-200 dark:border-white/[0.08] text-slate-700 dark:text-slate-200 transition-colors focus-visible:ring-2 focus-visible:ring-amber-500"
-              >
-                <FiChevronRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
+          
         </div>
       ) : (
         /* Stacked View: All 3 Large Hitit-Style Cards Vertically Stacked */

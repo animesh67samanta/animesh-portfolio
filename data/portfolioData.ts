@@ -1,6 +1,7 @@
 import { projects, Project } from "./projects";
+import { skillsData, SkillItem } from "./skillsData";
 
-export type { Project };
+export type { Project, SkillItem };
 
 export interface ExperienceItem {
   company: string;
@@ -17,14 +18,6 @@ export interface ExperienceItem {
   responsibilities: string[];
   achievements?: string[];
   technologies: string[];
-}
-
-export interface SkillItem {
-  name: string;
-  category: "Backend" | "Frontend" | "Databases" | "DevOps & Tools" | "APIs & Integrations" | "CMS";
-  iconName: string;
-  level: "Expert" | "Advanced" | "Proficient";
-  description: string;
 }
 
 export interface ServiceItem {
@@ -223,57 +216,7 @@ export const portfolioData = {
     }
   ] as ServiceItem[],
 
-  skills: [
-    // Backend
-    { name: "Laravel (v8 - v13)", category: "Backend", iconName: "SiLaravel", level: "Expert", description: "Architecture, Service Layer, Sanctum, Eloquent, Queues" },
-    { name: "PHP 8+", category: "Backend", iconName: "SiPhp", level: "Expert", description: "OOP, Attributes, Type Safety, Namespaces, Modern Syntax" },
-    { name: "RESTful APIs", category: "Backend", iconName: "TbApi", level: "Expert", description: "API Resources, Rate Limiting, Sanctum Tokens, JSON Specs" },
-    { name: "Queues & Jobs", category: "Backend", iconName: "LuWorkflow", level: "Expert", description: "Async workers, event dispatching, failed job monitoring" },
-    { name: "CRON & Schedulers", category: "Backend", iconName: "FiClock", level: "Expert", description: "Automated batch processing, yearly sync, custom commands" },
-    { name: "Spatie & RBAC", category: "Backend", iconName: "FiShield", level: "Expert", description: "Guards, permissions, policy checks, multi-tenant roles" },
-    { name: "OOP & Clean Arch", category: "Backend", iconName: "FiLayers", level: "Expert", description: "SOLID principles, repository patterns, DRY codebases" },
-    { name: "Payment Gateways", category: "Backend", iconName: "MdPayment", level: "Advanced", description: "Razorpay, PhonePe checkout, webhooks & receipts" },
-    
-    // Databases
-    { name: "MySQL", category: "Databases", iconName: "SiMysql", level: "Expert", description: "Schema design, indexing, foreign keys, stored procedures" },
-    { name: "Query Optimization", category: "Databases", iconName: "FiZap", level: "Expert", description: "JOIN optimization, EXPLAIN analysis, query caching" },
-    { name: "Redis", category: "Databases", iconName: "SiRedis", level: "Advanced", description: "Key-value caching, session storage, queue workers" },
-    { name: "SQL Server", category: "Databases", iconName: "FiDatabase", level: "Proficient", description: "Relational queries, migrations, enterprise data sync" },
-    { name: "Database Design", category: "Databases", iconName: "FiGrid", level: "Expert", description: "Normalization, ERD, bilingual schemas (_mr fields)" },
-
-    // Frontend
-    { name: "React.js", category: "Frontend", iconName: "SiReact", level: "Advanced", description: "Component lifecycle, state hooks, responsive interfaces" },
-    { name: "Inertia.js", category: "Frontend", iconName: "SiInertia", level: "Advanced", description: "Seamless monolith SPA with Laravel & React/Vue" },
-    { name: "Blade Templating", category: "Frontend", iconName: "SiLaravel", level: "Expert", description: "Components, layouts, directives, view caching" },
-    { name: "Tailwind CSS", category: "Frontend", iconName: "SiTailwindcss", level: "Advanced", description: "Modern responsive utility styling, dark mode" },
-    { name: "JavaScript / ES6+", category: "Frontend", iconName: "SiJavascript", level: "Advanced", description: "Async/await, DOM manipulation, promises, fetch" },
-    { name: "AJAX Form Handling", category: "Frontend", iconName: "FiRepeat", level: "Expert", description: "Zero-reload submissions, real-time validation, 50% faster" },
-    { name: "TypeScript", category: "Frontend", iconName: "SiTypescript", level: "Proficient", description: "Type safety, interfaces, strict props typing" },
-    { name: "Vue.js", category: "Frontend", iconName: "SiVuedotjs", level: "Proficient", description: "Reactive components, props, template syntax" },
-    { name: "Bootstrap", category: "Frontend", iconName: "SiBootstrap", level: "Advanced", description: "Responsive grids, dashboard layouts, UI components" },
-
-    // DevOps & Tools
-    { name: "Go (Golang)", category: "DevOps & Tools", iconName: "SiGo", level: "Advanced", description: "Cross-platform CLI tools, Bubble Tea TUI, GoReleaser pipelines" },
-    { name: "CLI & Terminal UIs", category: "DevOps & Tools", iconName: "FiTerminal", level: "Expert", description: "Cobra subcommands, autocompletions, Lip Gloss styling, SQLite metadata" },
-    { name: "Git & GitHub", category: "DevOps & Tools", iconName: "SiGithub", level: "Expert", description: "Branching, PRs, version control, conflict resolution" },
-    { name: "Postman", category: "DevOps & Tools", iconName: "SiPostman", level: "Expert", description: "API testing, automated runner collections, mock environments" },
-    { name: "Docker", category: "DevOps & Tools", iconName: "SiDocker", level: "Proficient", description: "Containerized environments, docker-compose, PHP/MySQL" },
-    { name: "Linux / Shell", category: "DevOps & Tools", iconName: "SiLinux", level: "Advanced", description: "Server administration, cron jobs, file permissions" },
-    { name: "CI / CD", category: "DevOps & Tools", iconName: "FiTerminal", level: "Proficient", description: "Automated test runs, deployment hooks" },
-    { name: "hPanel / cPanel / Plesk", category: "DevOps & Tools", iconName: "FiServer", level: "Expert", description: "Production deployments, SSL, DNS & database setup" },
-    { name: "Jira & Bitbucket", category: "DevOps & Tools", iconName: "SiJira", level: "Advanced", description: "Sprint management, ticket tracking, code reviews" },
-
-    // APIs & Integrations
-    { name: "FastAPI / AI Integrations", category: "APIs & Integrations", iconName: "SiFastapi", level: "Advanced", description: "Connecting Laravel backend to AI models & suggestions" },
-    { name: "Softzix SMS Gateway", category: "APIs & Integrations", iconName: "FiMessageSquare", level: "Expert", description: "Transactional SMS notifications, OTP, alerts" },
-    { name: "Email Notifications", category: "APIs & Integrations", iconName: "FiMail", level: "Expert", description: "SMTP, Mailgun, dynamic PDF attachments, mailables" },
-    { name: "PDF Generation (DOMPDF)", category: "APIs & Integrations", iconName: "FiFileText", level: "Expert", description: "Dynamic demand bills, tax slips, certificates" },
-    { name: "Bulk Excel/CSV Engine", category: "APIs & Integrations", iconName: "FiFile", level: "Expert", description: "Maatwebsite Excel, chunked imports, export streams" },
-
-    // CMS
-    { name: "WordPress", category: "CMS", iconName: "SiWordpress", level: "Advanced", description: "Custom themes, plugins, REST API endpoints, hooks" },
-    { name: "WooCommerce", category: "CMS", iconName: "SiWoocommerce", level: "Advanced", description: "E-commerce checkout customization, orders & inventory" }
-  ] as SkillItem[],
+  skills: skillsData,
 
   experiences: [
     {

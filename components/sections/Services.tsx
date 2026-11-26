@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { FiCheck, FiLayers, FiGrid } from "react-icons/fi";
+import Link from "next/link";
+import { FiCheck, FiLayers, FiGrid, FiArrowRight } from "react-icons/fi";
 import { SiLaravel, SiMysql, SiOpenaccess, SiReact, SiWordpress } from "react-icons/si";
 import { TbApi } from "react-icons/tb";
 import { MdPayment, MdReceiptLong } from "react-icons/md";
@@ -28,18 +29,30 @@ export function Services() {
     <section id="services" className="py-16 border-t border-slate-200 dark:border-slate-800/80 scroll-mt-24 transition-colors duration-250">
       {/* Header */}
       <FadeIn direction="up">
-        <div className="flex items-center gap-3 mb-2">
-          <span className="w-8 h-[2px] bg-cyan-500 dark:bg-cyan-400" />
-          <span className="text-xs font-semibold text-cyan-600 dark:text-cyan-400 uppercase tracking-widest">
-            Expertise & Solutions
-          </span>
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div>
+            <div className="flex items-center gap-3 mb-2">
+              <span className="w-8 h-[2px] bg-cyan-500 dark:bg-cyan-400" />
+              <span className="text-xs font-semibold text-cyan-600 dark:text-cyan-400 uppercase tracking-widest">
+                Expertise &amp; Solutions
+              </span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
+              Web Applications &amp; Business Digitalization Services
+            </h2>
+            <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-1.5 max-w-3xl leading-relaxed">
+              I help businesses, startups, and organizations digitize their operations through custom web applications, ERP/CRM/CMS systems, billing software, WordPress websites, and workflow automation. Specializing in Laravel, PHP, React, WordPress, MySQL, and REST APIs, I build secure, scalable, and user-friendly solutions that improve efficiency, reduce manual work, and support business growth.
+            </p>
+          </div>
+
+          <Link
+            href="/services"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-cyan-500/10 hover:bg-cyan-500 text-cyan-700 dark:text-cyan-300 hover:text-slate-950 font-bold text-xs border border-cyan-500/30 hover:border-cyan-500 transition-all duration-200 shrink-0 self-start sm:self-auto shadow-sm"
+          >
+            <span>Explore Dedicated Services Page</span>
+            <FiArrowRight className="w-3.5 h-3.5" />
+          </Link>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
-          Web Applications & Business Digitalization Services
-        </h2>
-        <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-1.5 max-w-3xl leading-relaxed">
-          I help businesses, startups, and organizations digitize their operations through custom web applications, ERP/CRM/CMS systems, billing software, WordPress websites, and workflow automation. Specializing in Laravel, PHP, React, WordPress, MySQL, and REST APIs, I build secure, scalable, and user-friendly solutions that improve efficiency, reduce manual work, and support business growth.
-        </p>
       </FadeIn>
 
       {/* Services Grid */}

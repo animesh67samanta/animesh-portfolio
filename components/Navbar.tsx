@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
 import {
   FiHome,
   FiUser,
@@ -23,25 +24,39 @@ interface NavItem {
   id: string;
   label: string;
   icon: React.ElementType;
+  href?: string;
 }
 
 const navItems: NavItem[] = [
-  { id: "home", label: "Home", icon: FiHome },
-  { id: "about", label: "About", icon: FiUser },
-  { id: "skills", label: "Skills", icon: FiCpu },
-  { id: "experience", label: "Experience", icon: FiBriefcase },
-  { id: "projects", label: "Projects", icon: FiFolder },
-  { id: "services", label: "Services", icon: FiLayers },
-  { id: "resume", label: "Resume", icon: FiFileText },
-  { id: "contact", label: "Contact", icon: FiMail },
+  { id: "home", label: "Home", icon: FiHome, href: "/" },
+  { id: "about", label: "About", icon: FiUser, href: "/#about" },
+  { id: "skills", label: "Skills", icon: FiCpu, href: "/#skills" },
+  { id: "experience", label: "Experience", icon: FiBriefcase, href: "/#experience" },
+  { id: "projects", label: "Projects", icon: FiFolder, href: "/projects" },
+  { id: "services", label: "Services", icon: FiLayers, href: "/services" },
+  { id: "resume", label: "Resume", icon: FiFileText, href: "/#resume" },
+  { id: "contact", label: "Contact", icon: FiMail, href: "/#contact" },
 ];
 
 export function Navbar() {
-  const [activeSection, setActiveSection] = useState("home");
+  const pathname = usePathname();
+  const router = useRouter();
+  const [scrollActiveSection, setScrollActiveSection] = useState("home");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  const activeSection =
+    pathname === "/services"
+      ? "services"
+      : pathname?.startsWith("/projects")
+      ? "projects"
+      : scrollActiveSection;
+
   useEffect(() => {
+    if (pathname === "/services" || pathname?.startsWith("/projects")) {
+      return;
+    }
+
     let ticking = false;
 
     const handleScroll = () => {
@@ -57,7 +72,7 @@ export function Navbar() {
               const sectionTop = section.offsetTop;
               if (scrollPosition >= sectionTop) {
                 const targetId = navItems[i].id;
-                setActiveSection((prev) => (prev !== targetId ? targetId : prev));
+                setScrollActiveSection((prev) => (prev !== targetId ? targetId : prev));
                 break;
               }
             }
@@ -71,15 +86,51 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
 
-  const scrollToSection = (id: string) => {
+  const handleNavClick = (id: string) => {
     setMobileMenuOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+
+    if (id === "services") {
+      if (pathname === "/services") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        router.push("/services");
+      }
+      return;
+    }
+
+    if (id === "projects") {
+      if (pathname === "/") {
+        const el = document.getElementById("projects");
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+          return;
+        }
+      }
+      router.push("/projects");
+      return;
+    }
+
+    if (pathname === "/") {
+      if (id === "home") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }
     } else {
-      window.location.href = id === "home" ? "/" : `/#${id}`;
+      // If on /services or other sub-page and user clicks contact, scroll to quote/contact if present
+      if (id === "contact") {
+        const quoteEl = document.getElementById("quote") || document.getElementById("contact");
+        if (quoteEl) {
+          quoteEl.scrollIntoView({ behavior: "smooth" });
+          return;
+        }
+      }
+      router.push(id === "home" ? "/" : `/#${id}`);
     }
   };
 
@@ -96,7 +147,7 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Brand Logo / Monogram */}
           <button
-            onClick={() => scrollToSection("home")}
+            onClick={() => handleNavClick("home")}
             className="flex items-center gap-3 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-lg p-1 group"
             aria-label="Animesh Samanta Portfolio Home"
           >
@@ -125,13 +176,20 @@ export function Navbar() {
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = activeSection === item.id;
+              const href =
+                item.id === "services"
+                  ? "/services"
+                  : item.id === "projects"
+                  ? pathname === "/" ? "#projects" : "/projects"
+                  : pathname === "/" ? `#${item.id}` : `/#${item.id}`;
+
               return (
                 <a
                   key={item.id}
-                  href={`#${item.id}`}
+                  href={href}
                   onClick={(e) => {
                     e.preventDefault();
-                    scrollToSection(item.id);
+                    handleNavClick(item.id);
                   }}
                   className={`flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
                     isActive
@@ -224,13 +282,20 @@ export function Navbar() {
               {navItems.map((item) => {
                 const Icon = item.icon;
                 const isActive = activeSection === item.id;
+                const href =
+                  item.id === "services"
+                    ? "/services"
+                    : item.id === "projects"
+                    ? pathname === "/" ? "#projects" : "/projects"
+                    : pathname === "/" ? `#${item.id}` : `/#${item.id}`;
+
                 return (
                   <a
                     key={item.id}
-                    href={`#${item.id}`}
+                    href={href}
                     onClick={(e) => {
                       e.preventDefault();
-                      scrollToSection(item.id);
+                      handleNavClick(item.id);
                     }}
                     className={`flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-colors text-left ${
                       isActive

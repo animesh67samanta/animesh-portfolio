@@ -52,7 +52,7 @@ export function HeroSection() {
           <div className="relative w-full h-full">
             {/* Immediate high-resolution static 3D visual: zero main thread blocking, instant paint */}
             <Image
-              src="/images/hero-3d-bg.png"
+              src="/images/earth/earth_atmos_2048.jpg"
               alt="Interactive 3D Digital Globe — Global Architecture & Deployments by Animesh Samanta"
               fill
               sizes="(max-width: 1024px) 100vw, 800px"
